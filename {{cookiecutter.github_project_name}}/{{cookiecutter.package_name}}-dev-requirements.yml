@@ -1,4 +1,4 @@
-name: {{cookiecutter.package_name}}-dev-requirenments
+name: {{cookiecutter.package_name}}-dev-requirements
 
 channels:
   - anaconda
