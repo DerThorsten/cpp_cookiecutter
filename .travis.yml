@@ -99,12 +99,15 @@ install:
     - conda config --set always_yes yes --set changeps1 no
     - conda update -q conda
     - conda install cookiecutter -c conda-forge 
-
     # Testing
     - cookiecutter cpp-conda-cookiecutter --overwrite-if-exists --no-inpu
     - cd cpptools
     - mkdir build
     - cd build
+    # create enviroment
+    - conda env create -f cpptools-dev-requirements.yml
+    # activate
+    - source activate cpptools-dev-requirements
     - cmake ..;
     - make -j2 
     - ./test_cpptools
