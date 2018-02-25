@@ -106,7 +106,7 @@ install:
     - mkdir build
     - cd build
     # create enviroment
-    - conda env create -f cpptools-dev-requirements.yml
+    - conda env create -f cpptools-dev-requirements.yml -n cpptools-dev-requirements
     # activate
     - source activate cpptools-dev-requirements
     - cmake ..;
