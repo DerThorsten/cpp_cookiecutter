@@ -112,12 +112,8 @@ install:
 
     - mkdir build
     - cd build
-    
-    
-    
-    - cmake ..;
+    - cmake ..
     - make -j2 
-    - ./test_cpptools
     - cd test
 script:
 - ./test_cpptools
