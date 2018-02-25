@@ -105,11 +105,11 @@ install:
     - cd cpptools
 
     # create enviroment
-    - conda env create -f cpptools-dev-requirements.yml0
+    - conda env create -f cpptools-dev-requirements.yml
 
     # activate
     - source activate cpptools-dev-requirements
-    
+
     - mkdir build
     - cd build
     
