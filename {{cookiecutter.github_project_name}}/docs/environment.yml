@@ -1,0 +1,10 @@
+name: {{cookiecutter.package_name}}-docs
+
+channels:
+  - conda-forge
+
+dependencies:
+  - cmake
+  - xtensor
+  - xtensor-python
+  - breathe

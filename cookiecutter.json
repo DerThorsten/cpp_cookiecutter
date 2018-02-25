@@ -1,0 +1,22 @@
+{
+    "full_name":                    "John Doe",
+    "email":                        "john@doe.de",
+    "project_name":                 "cpptools",
+    "project_slug":                 "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+    "package_name":                 "{{ cookiecutter.project_slug|replace('-', '_') }}",
+    "cpp_namespace":                "{{ cookiecutter.package_name }}",
+    "cpp_root_folder_name":         "{{ cookiecutter.package_name }}",
+    "cpp_macro_prefix":             "{{ cookiecutter.project_name|upper|replace(' ', '_')|replace('-', '_') }}",
+    "cmake_project_name":           "{{ cookiecutter.package_name }}",
+    "cmake_interface_library_name": "{{ cookiecutter.package_name }}",
+    "github_project_name":          "{{ cookiecutter.project_slug }}",
+    "github_user_name":             "JohnDoe",
+    "year":                         "2018",
+    "description":                  "{{ cookiecutter.package_name }} is C++ library",
+    "_copy_without_render": [
+        "docs/source/_templates/*.html",
+        "docs/source/_templates/*.css",
+        "docs/source/_templates/*.rst",
+        "docs/source/_static/css/*.css"
+    ]
+}

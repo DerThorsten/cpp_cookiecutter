@@ -1,0 +1,8 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
+includedir=${prefix}/include
+
+Name: {{cookiecutter.cmake_project_name}}
+Description: {{cookiecutter.description}}
+Version: @{{cookiecutter.cmake_project_name}}_VERSION@
+Cflags: -I${includedir}
