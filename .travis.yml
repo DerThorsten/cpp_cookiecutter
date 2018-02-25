@@ -103,12 +103,18 @@ install:
     - cd ..
     - cookiecutter cpp_cookiecutter --overwrite-if-exists --no-input
     - cd cpptools
-    - mkdir build
-    - cd build
+
     # create enviroment
-    - conda env create -f cpptools-dev-requirements.yml -n cpptools-dev-requirements
+    - conda env create -f cpptools-dev-requirements.yml0
+
     # activate
     - source activate cpptools-dev-requirements
+    
+    - mkdir build
+    - cd build
+    
+    
+    
     - cmake ..;
     - make -j2 
     - ./test_cpptools
