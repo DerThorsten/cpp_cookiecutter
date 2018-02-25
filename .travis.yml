@@ -101,7 +101,7 @@ install:
     - conda install cookiecutter -c conda-forge 
     # Testing
     - cd ..
-    - cookiecutter cpp-conda-cookiecutter --overwrite-if-exists --no-input
+    - cookiecutter cpp_cookiecutter --overwrite-if-exists --no-input
     - cd cpptools
     - mkdir build
     - cd build
