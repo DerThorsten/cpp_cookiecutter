@@ -12,7 +12,6 @@ build:
 
 requirements:
   build:
-    - toolchain
     - cmake >=3.1
 
 test:
