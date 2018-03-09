@@ -129,7 +129,7 @@ script:
 - cd benchmark
 - ./benchmark_cpptools
 - cd ..
-# test the conda recipe
-- cd ..
-- conda config --set anaconda_upload no
-- conda build recipe
+# # test the conda recipe
+# - cd ..
+# - conda config --set anaconda_upload no
+# - conda build recipe
