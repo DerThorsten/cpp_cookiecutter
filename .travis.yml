@@ -99,6 +99,7 @@ install:
     - conda config --set always_yes yes --set changeps1 no
     - conda update -q conda
     - conda install cookiecutter -c conda-forge 
+    - conda install conda-build
     # Testing
     - cd ..
     - cookiecutter cpp_cookiecutter --overwrite-if-exists --no-input
@@ -114,7 +115,7 @@ install:
     - cd build
     - cmake ..
     - make -j2 
-    
+
 script:
 # test the actual test-suite
 - cd test
