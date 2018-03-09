@@ -2,6 +2,9 @@
 Cpp Cookiecutter
 =================================================
 
+.. image:: https://img.shields.io/travis/DerThorsten/cpp_cookiecutter.svg
+        :target: https://travis-ci.org/DerThorsten/cpp_cookiecutter
+
 
 Features
 --------
