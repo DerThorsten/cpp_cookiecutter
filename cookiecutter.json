@@ -14,7 +14,6 @@
     "github_project_name":          "{{ cookiecutter.project_slug }}",
     "github_user_name":             "JohnDoe",
     "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
-    "year":                         "2018",
     "summary":                      "{{ cookiecutter.package_name }} is a modern C++ library",
     "description":                  "{{ cookiecutter.package_name }} is a C++ library",
     "_copy_without_render": [

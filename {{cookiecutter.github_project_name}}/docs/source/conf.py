@@ -21,12 +21,6 @@ if on_rtd:
     cmake_py_ver = "-DPYTHON_EXECUTABLE=%s"%(str(sys.executable),)
     subprocess.call('cd ../.. && cmake . %s %s && make -j2'%(cmake_defs, cmake_py_ver),          shell=True)
 
-sys.path.append(os.path.abspath('../../python'))
-
-
-
-
-
 
 html_theme = "sphinx_rtd_theme"
 #html_theme = "classic"
@@ -56,8 +50,6 @@ author = '{{cookiecutter.full_name}}'
 
 exclude_patterns = []
 highlight_language = 'c++'
-#pygments_style = 'sphinx'
+pygments_style = 'sphinx'
 todo_include_todos = False
 htmlhelp_basename = '{{cookiecutter.project_name}}_doc'
-
-pygments_style = 'monokai'
