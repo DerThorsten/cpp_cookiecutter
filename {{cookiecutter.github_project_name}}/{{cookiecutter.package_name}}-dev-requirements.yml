@@ -5,6 +5,7 @@ channels:
   - conda-forge
 dependencies:
   - cmake >= 3.1
+  - toolchain
   - sphinx 
   - breathe
 
