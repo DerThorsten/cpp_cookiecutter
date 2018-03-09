@@ -12,7 +12,7 @@ Introduction
 {% if cookiecutter.open_source_license != 'Not open source' -%}
 Licensing
 ---------
-This software is licensed under the {{cookiecutter.license}} license. See the LICENSE file for details.
+This software is licensed under the {{cookiecutter.open_source_license}} license. See the LICENSE.txt file for details.
 {% endif %}
 
 
