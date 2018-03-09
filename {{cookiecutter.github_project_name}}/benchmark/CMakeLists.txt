@@ -31,6 +31,13 @@ list(REMOVE_ITEM ${PROJECT_NAME}_BENCHMARKS main.cpp)
 set(${PROJECT_NAME}_BENCHMARK_TARGET benchmark_${PROJECT_NAME})
 
 
+# all benchmarks
+set(${PROJECT_NAME}_BENCHMARKS 
+    benchmark_{{cookiecutter.cmake_project_name}}.cpp
+)
+
+
+
 add_executable( ${${PROJECT_NAME}_BENCHMARK_TARGET}
     main.cpp
     ${${PROJECT_NAME}_BENCHMARKS}

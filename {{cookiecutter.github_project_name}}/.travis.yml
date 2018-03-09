@@ -99,7 +99,6 @@ install:
     - conda config --set always_yes yes --set changeps1 no
     - conda update -q conda
 
-
     # create enviroment
     - conda env create -f {{cookiecutter.package_name}}-dev-requirements.yml
 
@@ -110,6 +109,20 @@ install:
     - cd build
     - cmake ..
     - make -j2 
-    - cd test
+
 script:
+# test the actual test-suite
+- cd test
 - ./test_{{cookiecutter.cmake_project_name}}
+- cd ..
+# test the examples
+- cd examples
+- ./hello_world
+- cd ..
+# test the benchmark
+- cd benchmark
+- ./benchmark_{{cookiecutter.cmake_project_name}}
+- cd ..
+# test the conda recipe
+- conda config --set anaconda_upload no
+- conda build recipe

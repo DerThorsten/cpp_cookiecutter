@@ -114,6 +114,7 @@ install:
     - cd build
     - cmake ..
     - make -j2 
+    
 script:
 # test the actual test-suite
 - cd test
@@ -123,3 +124,10 @@ script:
 - cd examples
 - ./hello_world
 - cd ..
+# test the benchmark
+- cd benchmark
+- ./benchmark_cpptools
+- cd ..
+# test the conda recipe
+- conda config --set anaconda_upload no
+- conda build recipe

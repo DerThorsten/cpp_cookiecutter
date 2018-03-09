@@ -25,14 +25,11 @@ endif()
 
 
 
-file(GLOB_RECURSE ${PROJECT_NAME}_TESTS  
-     RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cpp)
-list(REMOVE_ITEM ${PROJECT_NAME}_TESTS main.cpp)
+# all tests
+set(${PROJECT_NAME}_TEST_TARGET 
+    test_{{cookiecutter.package_name}}_config.cpp
+)
 
-
-
-
-set(${PROJECT_NAME}_TEST_TARGET test_${PROJECT_NAME})
 
 
 add_executable( ${${PROJECT_NAME}_TEST_TARGET}

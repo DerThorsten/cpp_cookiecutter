@@ -9,7 +9,8 @@ Features
 Current features include: 
     * modern C++ 14
     * build system with modern CMake 
-    * cpp and python in one project
+    * conda recipe included
+    * travis included
     * unit tests with cpp doctest
     * benchmark code with google benchmark
     * docs with sphinx breathe and readthedocs support
@@ -25,3 +26,23 @@ Things which need to be done
     * conda recipes are not net in the cookiecutter
     * Add documentation how to use the cookiecutter
 
+
+
+
+Usage:
+--------
+
+Install _cookiecutter 
+
+.. code-block:: shell
+
+    $ pip install cookiecutter
+
+
+After installing cookiecutter, use the cpp-cookiecutter:
+
+    $ cookiecutter https://github.com/DerThorsten/cpp_cookiecutter
+
+
+
+.. _cookiecutter: https://github.com/audreyr/cookiecutter

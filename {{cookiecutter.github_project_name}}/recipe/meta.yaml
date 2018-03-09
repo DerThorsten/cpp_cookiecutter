@@ -1,16 +1,10 @@
-{% set name = "{{cookiecutter.conda_package_name}}" %}
-{% set version = "0.1.0" %}
-#{% set sha256 = "b2ada6f86faf5c9032e8b1a7b8cc0dff68a229e90ad80b366f5564fec03caa17" %}
-
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: {{cookiecutter.conda_package_name}}
+  version: 0.1.0
 
 source:
   path: ../
-  #fn: ad3-{{ version }}.tar.gz
-  #url: https://github.com/DerThorsten/AD3/archive/{{ version }}.tar.gz
-  #sha256: {{ sha256 }}
+
 
 
 build:
@@ -20,20 +14,33 @@ requirements:
   build:
     - toolchain
     - cmake
-    - eigen
-
 
 test:
   commands:
-    - test -d ${PREFIX}/include/ad3           # [unix]
-    - test -f ${PREFIX}/include/ad3/Factor.h  # [unix]
-    - if exist %LIBRARY_PREFIX%\include\ad3\Factor.h (exit 0) else (exit 1)  # [win]
+    - test -d ${PREFIX}/include/{{cookiecutter.cpp_root_folder_name}}           # [unix]
+    - test -f ${PREFIX}/include/{{cookiecutter.cpp_root_folder_name}}/{{ cookiecutter.package_name}}.hpp # [unix]
+    - if exist %LIBRARY_PREFIX%\include\{{cookiecutter.cpp_root_folder_name}}\{{ cookiecutter.package_name}}.hpp (exit 0) else (exit 1)  # [win]
+
+
 
 about:
   home:  https://github.com/{{cookiecutter.github_user_name}}/{{cookiecutter.github_project_name}}
-  license: GPL3
-  license_family: GPL3
-  license_file: LICENSE
+  {% if cookiecutter.open_source_license == 'MIT license' -%}
+  license: MIT
+  license_family: MIT
+  {% elif cookiecutter.open_source_license == 'BSD license' %}
+  license: BSD 3-Clause
+  license_family: BSD
+  {% elif cookiecutter.open_source_license == 'ISC license' -%}
+  license: ISC
+  license_family: ISC
+  {% elif cookiecutter.open_source_license == 'Apache Software License 2.0' -%}
+  license: Apache
+  license_family: Apache
+  {% elif cookiecutter.open_source_license == 'GNU General Public License v3' -%}
+  license: GPL
+  license_family: GPL
+  {% endif %}
   summary: '{{cookiecutter.summary}}'
   description: '{{cookiecutter.description}}'
   documentation_url: https://readthedocs.org/projects/{{cookiecutter.readthedocs_package_name}}/
