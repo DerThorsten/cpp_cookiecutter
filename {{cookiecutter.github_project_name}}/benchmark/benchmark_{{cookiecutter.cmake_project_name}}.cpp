@@ -3,7 +3,7 @@
 #include <string>
 
 
-static void BM_StringCreation(benchmark::State& state)
+static void BM_SomeBenchmark(benchmark::State& state)
 {
 
 
@@ -13,4 +13,4 @@ static void BM_StringCreation(benchmark::State& state)
     }
 }
 // Register the function as a benchmark
-BENCHMARK(BM_StringCreation);
+BENCHMARK(BM_SomeBenchmark);
