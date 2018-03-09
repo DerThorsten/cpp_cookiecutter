@@ -41,6 +41,8 @@ Install _cookiecutter
 
 After installing cookiecutter, use the cpp-cookiecutter:
 
+.. code-block:: shell
+
     $ cookiecutter https://github.com/DerThorsten/cpp_cookiecutter
 
 
