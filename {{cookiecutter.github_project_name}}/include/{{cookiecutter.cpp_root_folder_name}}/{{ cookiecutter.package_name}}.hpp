@@ -1,6 +1,6 @@
 #pragma once
-#ifndef {{ cookiecutter.cpp_macro_prefix }}_{{cookiecutter.package_name}}_HPP
-#define {{ cookiecutter.cpp_macro_prefix }}_{{cookiecutter.package_name}}_HPP
+#ifndef {{ cookiecutter.cpp_macro_prefix }}_{{cookiecutter.package_name|upper}}_HPP
+#define {{ cookiecutter.cpp_macro_prefix }}_{{cookiecutter.package_name|upper}}_HPP
 
 
 

@@ -50,7 +50,7 @@ templates_path = ['_template']
 source_suffix = '.rst'
 master_doc = 'index'
 project = '{{cookiecutter.project_name}}'
-copyright = '{{cookiecutter.year}}, {{cookiecutter.full_name}}'
+copyright = ' {% now 'local', '%Y' %} , {{cookiecutter.full_name}}'
 author = '{{cookiecutter.full_name}}'
 
 
