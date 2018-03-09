@@ -23,6 +23,8 @@ else()
 
 endif()
 
+set(${PROJECT_NAME}_BENCHMARK_TARGET test_${PROJECT_NAME})
+
 
 
 # all tests
