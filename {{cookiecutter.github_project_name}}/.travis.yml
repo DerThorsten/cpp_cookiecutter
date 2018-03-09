@@ -123,6 +123,7 @@ script:
 - cd benchmark
 - ./benchmark_{{cookiecutter.cmake_project_name}}
 - cd ..
-# test the conda recipe
-- conda config --set anaconda_upload no
-- conda build recipe
+# # test the conda recipe
+# - cd ..
+# - conda config --set anaconda_upload no
+# - conda build recipe
