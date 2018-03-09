@@ -9,11 +9,11 @@ Introduction
 - an API following the idioms of the **C++ standard library**.
 
 
-
+{% if cookiecutter.open_source_license != 'Not open source' -%}
 Licensing
 ---------
-
-This software is licensed under the BSD-3-Clause license. See the LICENSE file for details.
+This software is licensed under the {{cookiecutter.license}} license. See the LICENSE file for details.
+{% endif %}
 
 
 .. toctree::
