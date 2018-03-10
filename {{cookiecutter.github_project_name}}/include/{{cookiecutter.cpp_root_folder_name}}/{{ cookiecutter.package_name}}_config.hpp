@@ -14,4 +14,4 @@ namespace {{ cookiecutter.cpp_namespace }} {
 } // end namespace {{cookiecutter.cpp_namespace}}
 
 
-#endif // {{ cookiecutter.cpp_macro_prefix }}_{{cookiecutter.package_name}}_config_HPP
+#endif // {{ cookiecutter.cpp_macro_prefix }}_{{cookiecutter.package_name|upper}}_config_HPP
