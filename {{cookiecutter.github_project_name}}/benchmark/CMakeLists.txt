@@ -52,3 +52,10 @@ target_include_directories(  ${${PROJECT_NAME}_BENCHMARK_TARGET} PRIVATE
 target_link_libraries( ${${PROJECT_NAME}_BENCHMARK_TARGET}
                       ${GBENCHMARK_LIBRARIES}
 )
+
+if (NOT CMAKE_CXX_COMPILER_ID MATCHES "Clang" )
+    # if flags ffast-math is defined, __extern_always_inline
+    # gives errors on clang
+    target_compile_options(${${PROJECT_NAME}_BENCHMARK_TARGET}
+        PRIVATE  -ffast-math -Ofast -march=native  -pthread)
+endif()
