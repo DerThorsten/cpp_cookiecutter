@@ -5,9 +5,8 @@
 #   {{cookiecutter.cmake_project_name}}_INCLUDE_DIRS - the directory containing {{cookiecutter.cmake_project_name}} headers
 #   {{cookiecutter.cmake_project_name}}_LIBRARY - empty
 
-@PACKAGE_INIT@
 
 if(NOT TARGET @PROJECT_NAME@)
   include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@Targets.cmake")
-  get_target_property(@PROJECT_NAME@_INCLUDE_DIRS {{cookiecutter.cmake_project_name}} INTERFACE_INCLUDE_DIRECTORIES)
+  get_target_property(@PROJECT_NAME@_INCLUDE_DIRS {{cookiecutter.cmake_interface_library_name}} INTERFACE_INCLUDE_DIRECTORIES)
 endif()
