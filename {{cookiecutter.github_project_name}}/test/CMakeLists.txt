@@ -28,7 +28,7 @@ set(${PROJECT_NAME}_TEST_TARGET test_${PROJECT_NAME})
 
 
 # all tests
-set(${${PROJECT_NAME}_TESTS}
+set(${PROJECT_NAME}_TESTS
     test_{{cookiecutter.package_name}}_config.cpp
 )
 
