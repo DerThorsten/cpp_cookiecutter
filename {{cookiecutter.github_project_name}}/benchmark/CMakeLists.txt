@@ -13,7 +13,8 @@ if(DOWNLOAD_GOOGLE_BENCHMARK OR GOOGLE_BENCHMARK_SRC_DIR)
     # Add googlebenchmark directly to our build. This defines
     # the gtest and gtest_main targets.
     add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googlebenchmark-src
-                     ${CMAKE_CURRENT_BINARY_DIR}/googlebenchmark-build)
+                     ${CMAKE_CURRENT_BINARY_DIR}/googlebenchmark-build
+                      EXCLUDE_FROM_ALL)
 
 
     set(GBENCHMARK_INCLUDE_DIRS "${googlebenchmark_SOURCE_DIR}/include")
