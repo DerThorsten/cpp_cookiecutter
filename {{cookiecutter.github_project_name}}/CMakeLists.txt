@@ -6,7 +6,7 @@ project ({{cookiecutter.cmake_project_name}})
 
 set(PROJECT_INCLUDE_DIR    ${CMAKE_CURRENT_SOURCE_DIR}/include)
 set(CPP_ROOT_FOLDER_NAME   {{cookiecutter.cpp_root_folder_name}})
-
+include_directories(${PROJECT_INCLUDE_DIR})
 
 {% if cookiecutter.cpp_standart == 'C++14' -%}
 # C++ 14
