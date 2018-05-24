@@ -38,6 +38,10 @@ add_executable( ${${PROJECT_NAME}_TEST_TARGET}
 )
 
 
+target_link_libraries(${${PROJECT_NAME}_TEST_TARGET}
+    ${INTERFACE_LIB_NAME}
+)
+
 target_include_directories(  ${${PROJECT_NAME}_TEST_TARGET} PRIVATE 
-    "$<BUILD_INTERFACE:${PROJECT_INCLUDE_DIR};${DOCTEST_INCLUDE_DIR}>"
+    "$<BUILD_INTERFACE:${DOCTEST_INCLUDE_DIR}>"
 )
