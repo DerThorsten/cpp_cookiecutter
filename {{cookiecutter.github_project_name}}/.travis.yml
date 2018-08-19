@@ -28,15 +28,15 @@ matrix:
           packages:
             - g++-6
       env: COMPILER=gcc GCC=6
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-3.6
-          packages:
-            - clang-3.6
-      env: COMPILER=clang CLANG=3.6
+    # - os: linux
+    #   addons:
+    #     apt:
+    #       sources:
+    #         - ubuntu-toolchain-r-test
+    #         - llvm-toolchain-precise-3.6
+    #       packages:
+    #         - clang-3.6
+    #   env: COMPILER=clang CLANG=3.6
     - os: linux
       addons:
         apt:
