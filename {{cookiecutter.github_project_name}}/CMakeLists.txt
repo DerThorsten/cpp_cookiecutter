@@ -52,11 +52,11 @@ set(${PROJECT_NAME}_VERSION
     ${${PROJECT_NAME}_VERSION_MAJOR}.${${PROJECT_NAME}_VERSION_MINOR}.${${PROJECT_NAME}_VERSION_PATCH})
 message(STATUS "Building project v${${PROJECT_NAME}_VERSION}")
 
-# # Dependencies
-# # ============
+# Dependencies
+# ============
 
-# find_package(xtl 0.4 REQUIRED)
-# message(STATUS "Found xtl: ${xtl_INCLUDE_DIRS}/xtl")
+find_package(xtl      REQUIRED)
+find_package(xtensor  REQUIRED)
 
 # # Build
 # # =====
@@ -69,6 +69,8 @@ file(GLOB_RECURSE ${PROJECT_NAME}_HEADERS  ${PROJECT_INCLUDE_DIR}/*.hpp)
 
 
 add_library(${INTERFACE_LIB_NAME} INTERFACE)
+target_link_libraries(${INTERFACE_LIB_NAME} 
+  INTERFACE xtensor)
 
 target_include_directories(${INTERFACE_LIB_NAME}
     INTERFACE   $<BUILD_INTERFACE:${PROJECT_INCLUDE_DIR}>

@@ -22,8 +22,12 @@ foreach(CPP_EXAMPLE_FILE ${CPP_EXAMPLE_FILES})
         ${CPP_EXAMPLE_FILE}
     )
 
-    target_include_directories(  ${EXAMPLE_TARGET_NAME} PRIVATE 
-        "$<BUILD_INTERFACE:${PROJECT_INCLUDE_DIR}>"
+    # target_include_directories(  ${EXAMPLE_TARGET_NAME} PRIVATE 
+    #     "$<BUILD_INTERFACE:${PROJECT_INCLUDE_DIR}>"
+    # )
+
+    target_link_libraries( ${EXAMPLE_TARGET_NAME}
+        PRIVATE ${INTERFACE_LIB_NAME}
     )
 
     # add example to custom target for `make examples`
