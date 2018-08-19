@@ -14,11 +14,15 @@ requirements:
   build:
     - cmake >=3.1
     {% if cookiecutter.python_bindings == 'yes' -%}
+    - python >= 3.6
     - numpy
     - xtl
     - xtensor
     - xtensor-python
     {% endif %}
+  run:
+    - numpy
+    - python >= 3.6
 test:
   commands:
     - test -d ${PREFIX}/include/{{cookiecutter.cpp_root_folder_name}}           # [unix]
