@@ -103,6 +103,14 @@ if(BUILD_BENCHMARK)
     add_subdirectory(benchmark)
 endif()
 
+{% if cookiecutter.python_bindings == 'yes' -%}
+# Python
+# ============
+OPTION(BUILD_PYTHON "${PROJECT_NAME} python binding" ON)
+if(BUILD_PYTHON)
+    add_subdirectory(python)
+endif()
+{% endif %}
 
 # Examples
 # ============

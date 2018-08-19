@@ -13,14 +13,17 @@ build:
 requirements:
   build:
     - cmake >=3.1
-
+    {% if cookiecutter.python_bindings == 'yes' -%}
+    - numpy
+    - xtl
+    - xtensor
+    - xtensor-python
+    {% endif %}
 test:
   commands:
     - test -d ${PREFIX}/include/{{cookiecutter.cpp_root_folder_name}}           # [unix]
     - test -f ${PREFIX}/include/{{cookiecutter.cpp_root_folder_name}}/{{ cookiecutter.package_name}}.hpp # [unix]
     - if exist %LIBRARY_PREFIX%\include\{{cookiecutter.cpp_root_folder_name}}\{{ cookiecutter.package_name}}.hpp (exit 0) else (exit 1)  # [win]
-
-
 
 about:
   home:  https://github.com/{{cookiecutter.github_user_name}}/{{cookiecutter.github_project_name}}

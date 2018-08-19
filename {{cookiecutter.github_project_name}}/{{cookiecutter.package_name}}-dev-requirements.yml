@@ -7,4 +7,11 @@ dependencies:
   - cmake >=3.1
   - sphinx 
   - breathe
-
+  - xtl
+  - xtensor
+  {% if cookiecutter.python_bindings == 'yes' -%}
+  - python >=3.6
+  - numpy
+  - xtensor-python
+  - pybind11
+  {% endif %}
