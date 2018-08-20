@@ -27,7 +27,7 @@ Todos:
 --------
 
 Things which need to be done
-    * conda recipes are not net in the cookiecutter
+    * conda recipes are not well integrated yet
     * Add documentation how to use the cookiecutter
 
 
