@@ -75,6 +75,15 @@ namespace {{cookiecutter.cpp_namespace}} {
             "Add the sine and and cosine of the two specified values");
     }
 
+
+    void def_class(py::module & m)
+    {
+        py::class_<MyClass>(m, "MyClass")
+            .def(py::init<uint64_t>(),py::arg("size"))
+            .def("hello_world", &MyClass::hello_world)
+        ;
+    }
+
 }
 
 
@@ -98,5 +107,7 @@ PYBIND11_MODULE(_{{cookiecutter.python_package_name}} , module)
     )pbdoc";
 
     {{cookiecutter.cpp_namespace}}::def_examples(module);
+    {{cookiecutter.cpp_namespace}}::def_class(module);
+
     module.attr("__version__") = "dev";
 }
