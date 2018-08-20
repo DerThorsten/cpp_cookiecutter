@@ -28,4 +28,5 @@ TEST_CASE("check version"){
     CHECK_GE({{cookiecutter.cpp_macro_prefix}}_VERSION_PATCH , 0);
 }
 
+
 TEST_SUITE_END(); // end of testsuite core
