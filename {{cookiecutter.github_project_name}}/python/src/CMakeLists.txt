@@ -14,7 +14,9 @@ set(PY_MOD_LIB_NAME _${PY_MOD_NAME})
 pybind11_add_module(${PY_MOD_LIB_NAME}  main.cpp)
 
 # `link` against pybind11 interface module
-target_link_libraries(${PY_MOD_LIB_NAME} PUBLIC  xtensor pybind11::module)
+target_link_libraries(${PY_MOD_LIB_NAME} PUBLIC  
+    ${INTERFACE_LIB_NAME}
+    pybind11::module)
 
 # include directories for non-modern cmake
 set(PY_INCLUDE_DIRS 
