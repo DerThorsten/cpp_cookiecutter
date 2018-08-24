@@ -111,19 +111,19 @@ install:
     - make -j2 
 
 script:
-# test the actual test-suite
-- cd test
-- ./test_{{cookiecutter.cmake_project_name}}
-- cd ..
-# test the examples
-- cd examples
-- ./hello_world
-- cd ..
-# test the benchmark
-- cd benchmark
-- ./benchmark_{{cookiecutter.cmake_project_name}}
-- cd ..
-# # test the conda recipe
-# - cd ..
-# - conda config --set anaconda_upload no
-# - conda build recipe
+    # test the actual test-suite
+    - cd test
+    - ./test_{{cookiecutter.cmake_project_name}}
+    - cd ..
+    # test the examples
+    - cd examples
+    - ./hello_world
+    - cd ..
+    # test the benchmark
+    - cd benchmark
+    - ./benchmark_{{cookiecutter.cmake_project_name}}
+    - cd ..
+    # # test the conda recipe
+    # - cd ..
+    # - conda config --set anaconda_upload no
+    # - conda build recipe
