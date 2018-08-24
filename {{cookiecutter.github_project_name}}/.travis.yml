@@ -86,6 +86,7 @@ before_install:
         export CXX=clang++ CC=clang;
       fi
 install:
+    # depedency installation
     # Define the version of miniconda to download
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
         MINCONDA_OS=$MINCONDA_LINUX;
@@ -102,6 +103,9 @@ install:
     # create enviroment
     - conda env create -f {{cookiecutter.package_name}}-dev-requirements.yml
 
+
+script:
+    # build step
     # activate
     - source activate {{cookiecutter.package_name}}-dev-requirements
 
@@ -110,7 +114,6 @@ install:
     - cmake ..
     - make -j2 
 
-script:
     # test the actual test-suite
     - cd test
     - ./test_{{cookiecutter.cmake_project_name}}
