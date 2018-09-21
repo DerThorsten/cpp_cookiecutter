@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+import os.path
 import shutil
 
 PROJECT_NAME = "{{cookiecutter.github_project_name}}"
@@ -24,6 +25,8 @@ def delete_resource(resource):
 
 if __name__ == '__main__':
     build_python_binding = ("{{cookiecutter.python_bindings}}" == 'yes')
+    use_xtensor = ("{{cookiecutter.use_xtensor}}" == 'yes')
+
     if not build_python_binding:
         py_dir = os.path.join(PROJECT_DIRECTORY, 'python')
         delete_resource(py_dir)
@@ -31,3 +34,18 @@ if __name__ == '__main__':
     if NOT_OPEN_SOURCE:
         licence_file = os.path.join(PROJECT_DIRECTORY, 'LICENCE.txt')
         delete_resource(licence_file)
+
+    py_main_file = os.path.join(PROJECT_DIRECTORY, 'python/src/main.cpp')
+    py_main_xt_file = os.path.join(PROJECT_DIRECTORY, 'python/src/main_xt.cpp')
+    py_main_no_xt_file = os.path.join(PROJECT_DIRECTORY, 'python/src/main_no_xt.cpp')
+    
+    if os.path.isfile(py_main_file):
+        delete_resource(py_main_file)
+
+    if use_xtensor:
+        os.rename(py_main_xt_file, py_main_file)
+        delete_resource(py_main_no_xt_file)
+    else:
+        os.rename(py_main_no_xt_file, py_main_file)
+        delete_resource(py_main_xt_file)
+

@@ -37,11 +37,12 @@ add_executable( ${${PROJECT_NAME}_TEST_TARGET}
     ${${PROJECT_NAME}_TESTS}
 )
 
-
+{% if cookiecutter.use_xtensor == 'yes' -%}
 target_link_libraries(${${PROJECT_NAME}_TEST_TARGET}
     ${INTERFACE_LIB_NAME}
     xtensor
 )
+{% endif %}
 
 target_include_directories(  ${${PROJECT_NAME}_TEST_TARGET} PRIVATE 
     "$<BUILD_INTERFACE:${DOCTEST_INCLUDE_DIR}>"

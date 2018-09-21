@@ -1,9 +1,11 @@
 #-------------------------------------------------------------------------------------------------------------------
 # Add The module
 #-------------------------------------------------------------------------------------------------------------------
+{% if cookiecutter.use_xtensor == 'yes' -%}
 find_package(xtl               REQUIRED)
 find_package(xtensor           REQUIRED)
 find_package(xtensor-python    CONFIG  REQUIRED)
+{% endif %}
 
 
 set(PY_MOD_NAME {{cookiecutter.python_package_name}} )

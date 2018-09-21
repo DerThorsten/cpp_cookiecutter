@@ -54,10 +54,10 @@ message(STATUS "Building project v${${PROJECT_NAME}_VERSION}")
 
 # Dependencies
 # ============
-
+{% if cookiecutter.use_xtensor == 'yes' -%}
 find_package(xtl      REQUIRED)
 find_package(xtensor  REQUIRED)
-
+{% endif %} 
 # # Build
 # # =====
 
@@ -69,8 +69,10 @@ file(GLOB_RECURSE ${PROJECT_NAME}_HEADERS  ${PROJECT_INCLUDE_DIR}/*.hpp)
 
 
 add_library(${INTERFACE_LIB_NAME} INTERFACE)
+{% if cookiecutter.use_xtensor == 'yes' -%}
 target_link_libraries(${INTERFACE_LIB_NAME} 
   INTERFACE xtensor)
+{% endif %} 
 
 target_include_directories(${INTERFACE_LIB_NAME}
     INTERFACE   $<BUILD_INTERFACE:${PROJECT_INCLUDE_DIR}>

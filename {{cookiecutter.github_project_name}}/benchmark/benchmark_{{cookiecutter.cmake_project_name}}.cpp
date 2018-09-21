@@ -3,9 +3,6 @@
 #include <string>
 #include <vector>
 
-#include "xtensor/xmath.hpp"
-#include "xtensor/xarray.hpp"
-
 // our headers
 #include "{{cookiecutter.cpp_root_folder_name}}/{{ cookiecutter.package_name}}.hpp"
 
