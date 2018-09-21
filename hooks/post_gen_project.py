@@ -30,4 +30,4 @@ if __name__ == '__main__':
 
     if NOT_OPEN_SOURCE:
         licence_file = os.path.join(PROJECT_DIRECTORY, 'LICENCE.txt')
-        delete_resource(py_dir)
+        delete_resource(licence_file)
