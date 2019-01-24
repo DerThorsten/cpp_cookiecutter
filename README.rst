@@ -12,7 +12,7 @@ Features
 
 Current features include: 
     * modern C++ 14
-    * build system with modern CMake 
+    * build system with modernized yet not modern CMake  (this is a major todo)
     * conda recipe included
     * travis included
     * unit tests with cpp doctest
