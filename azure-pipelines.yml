@@ -86,8 +86,11 @@ jobs:
         inputs:
           updateConda: false
       - script: |
+
           conda config --set always_yes yes --set changeps1 no || exit 1
           conda update -q conda || exit 1
+          conda env create --mkdir --prefix $AGENT_WORKFOLDER/envs/myroot  -n myroot exit 1
+          source $CONDA/bin/activate $AGENT_WORKFOLDER/envs/myroot || exit 1
           conda install cookiecutter -c conda-forge  || exit 1
           conda install conda-build || exit 1
           cd .. || exit 1
