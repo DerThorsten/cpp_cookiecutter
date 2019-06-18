@@ -9,8 +9,8 @@ Cpp Cookiecutter
 .. image:: https://circleci.com/gh/DerThorsten/cpp_cookiecutter.svg?style=svg
     :target: https://circleci.com/gh/DerThorsten/cpp_cookiecutter
 
-.. image:: https://dev.azure.com/DerThorsten/cpp_cookiecutter/_apis/build/status/DerThorsten.cpp_cookiecutter
-    :target: fobar
+.. image:: https://dev.azure.com/derthorstenbeier/cpp_cookiecutter/_apis/build/status/derthorsten.cpp_cookiecutter
+    :target: (https://dev.azure.com/derthorstenbeier/cpp_cookiecutter/_build/latest?definitionId=1
 
 
 
