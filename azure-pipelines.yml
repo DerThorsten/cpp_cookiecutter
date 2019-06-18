@@ -92,7 +92,7 @@ jobs:
           echo "Update conda" || exit 1
           conda update -q conda || exit 1
           echo "create conda env myroot" || exit 1
-          conda env create -n myroot ||exit 1
+          conda create -n myroot ||exit 1
           echo "activate" || exit 1
           source $CONDA/bin/activate myroot || exit 1
           echo "install cookiecutter" || exit 1
