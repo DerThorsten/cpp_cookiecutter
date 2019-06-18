@@ -43,7 +43,7 @@ workflows:
   nightly-test:
     triggers:
        - schedule:
-           cron: "0 0 * * *"
+            cron: "0 0 * * *"
             filters:
               branches:
                 only:
