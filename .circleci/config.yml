@@ -1,0 +1,37 @@
+version: 2
+variables:
+  prepare_conda: &prepare_conda
+    run:
+      name: Install from dev-requirements.yml
+      command: |
+        conda config --set always_yes yes --set changeps1 no
+        conda update -q conda
+        conda install cookiecutter -c conda-forge 
+        conda install conda-build
+
+  run_tests: &run_tests
+    run:
+      name: Run tests
+      command: |
+        cd ..
+        cookiecutter cpp_cookiecutter --overwrite-if-exists --no-input
+        cd cpptools
+        conda env create -f cpptools-dev-requirements.yml
+        source activate cpptools-dev-requirements
+        mkdir build
+        cnmake ..
+        make -j2
+jobs:
+  test_job:
+    docker:
+     - image: continuumio/miniconda3:4.5.12
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - *prepare_conda
+      - *run_tests
+workflows:
+  version: 2
+  my_test:
+    jobs:
+      - test_job
