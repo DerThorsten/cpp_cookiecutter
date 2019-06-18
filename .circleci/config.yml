@@ -19,7 +19,7 @@ variables:
         conda env create -f cpptools-dev-requirements.yml
         source activate cpptools-dev-requirements
         mkdir build
-        cnmake ..
+        cmake ..
         make -j2
 jobs:
   test_job:
