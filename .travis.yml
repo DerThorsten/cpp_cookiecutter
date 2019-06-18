@@ -106,6 +106,9 @@ install:
     - cd build
     - cmake ..
     - make -j2 
+    
+    - cd python/module
+    - python -m pytest ../../../python/tests --rootdir .
 
 script:
 # test the actual test-suite

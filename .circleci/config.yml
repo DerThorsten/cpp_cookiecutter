@@ -24,6 +24,10 @@ variables:
         cd build
         cmake ..
         make -j2
+        cd python/module
+        python -m pytest ../../../python/tests --rootdir .
+
+
 jobs:
   test_job:
     docker:

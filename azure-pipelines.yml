@@ -39,7 +39,11 @@ jobs:
           cd build || exit 1
           cmake .. || exit 1
           make -j2 || exit 1
+          cd python/module || exit 1
+          python -m pytest ../../../python/tests || exit 1
           echo "Completed script successfully" || exit 1
+
+
   - job: macOS
     pool:
       vmImage: 'xcode9-macos10.13'
@@ -113,6 +117,8 @@ jobs:
           cmake .. || exit 1
           echo "make" || exit 1
           make -j2 || exit 1
+          cd python/module || exit 1
+          python -m pytest ../../../python/tests || exit 1
           echo "Completed script successfully" || exit 1
   - job: Windows
     pool:
@@ -151,5 +157,7 @@ jobs:
           cmake .. -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release  ^
                 -DDEPENDENCY_SEARCH_PREFIX="%CONDA_PREFIX%\Library" -DCMAKE_PREFIX_PATH="%CONDA_PREFIX%\Library" || exit 1
           make -j2 || exit 1
+          cd python/module || exit 1
+          python -m pytest ../../../python/tests || exit 1
           echo "Completed script successfully" || exit 1
           echo Completed script successfully || exit 1

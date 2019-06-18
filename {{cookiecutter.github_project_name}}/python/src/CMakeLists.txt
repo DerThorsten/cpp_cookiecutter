@@ -13,7 +13,11 @@ set(PY_MOD_LIB_NAME _${PY_MOD_NAME})
 
 
 # add the python library
-pybind11_add_module(${PY_MOD_LIB_NAME}  main.cpp)
+pybind11_add_module(${PY_MOD_LIB_NAME}  
+    main.cpp
+    def_build_config.cpp
+    def_myclass.cpp
+)
 
 # `link` against pybind11 interface module
 target_link_libraries(${PY_MOD_LIB_NAME} PUBLIC  
