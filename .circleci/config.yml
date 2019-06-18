@@ -4,6 +4,7 @@ variables:
     run:
       name: Install from dev-requirements.yml
       command: |
+        apt-get install build-essential
         conda config --set always_yes yes --set changeps1 no
         conda update -q conda
         conda install cookiecutter -c conda-forge 
@@ -18,7 +19,6 @@ variables:
         cd cpptools
         conda env create -f cpptools-dev-requirements.yml
         source activate cpptools-dev-requirements
-        conda install -c anaconda gcc 
         mkdir build
         cd build
         cmake ..
