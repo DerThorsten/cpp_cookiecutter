@@ -15,7 +15,7 @@ jobs:
       #     PY_VERSION: 3.7
     workingDirectory: 'repo'
     variables:
-      repoName: '$(build.repository.name)'
+      repoDir: '$(Build.Repository.LocalPath)'
 
     steps:
         # NOTE: On Linux, there is no write permission in the miniconda installation,
@@ -32,7 +32,7 @@ jobs:
           conda install cookiecutter -c conda-forge  || exit 1
           conda install conda-build || exit 1
           cd .. || exit 1
-          cookiecutter repo --overwrite-if-exists --no-input || exit 1
+          cookiecutter $repoDir --overwrite-if-exists --no-input || exit 1
           cd cpptools || exit 1
           conda env create -f cpptools-dev-requirements.yml || exit 1
           source activate cpptools-dev-requirements || exit 1
@@ -52,7 +52,7 @@ jobs:
       #     PY_VERSION: 3.7
     workingDirectory: 'repo'
     variables:
-      repoName: '$(build.repository.name)'
+      repoDir: '$(Build.Repository.LocalPath)'
     steps:
       # This build is practially identical to the Linux build above. One ugly part
       # is the selection of the XCode version. The documentation suggests to either
@@ -93,7 +93,7 @@ jobs:
           conda install cookiecutter -c conda-forge  || exit 1
           conda install conda-build || exit 1
           cd .. || exit 1
-          cookiecutter repo --overwrite-if-exists --no-input || exit 1
+          cookiecutter $repoDir --overwrite-if-exists --no-input || exit 1
           cd cpptools || exit 1
           echo "Activating conda environment" || exit 1
           conda env create --mkdir --prefix $AGENT_WORKFOLDER/envs/cpptools-dev-requirements  -f cpptools-dev-requirements.yml || exit 1
@@ -115,7 +115,7 @@ jobs:
       #   #   PY_VERSION: 2.7
     workingDirectory: 'repo'
     variables:
-      repoName: '$(build.repository.name)'
+      repoDir: '$(Build.Repository.LocalPath)'
     steps:
       # installed compilers:
       # "c:\Program Files (x86)\Microsoft Visual Studio\2017"
@@ -132,7 +132,7 @@ jobs:
           conda install cookiecutter -c conda-forge  || exit 1
           conda install conda-build || exit 1
           cd .. || exit 1
-          cookiecutter repo --overwrite-if-exists --no-input || exit 1
+          cookiecutter %repoDir% --overwrite-if-exists --no-input || exit 1
           cd cpptools || exit 1
           conda env create -f cpptools-dev-requirements.yml || exit 1
           source activate cpptools-dev-requirements || exit 1
