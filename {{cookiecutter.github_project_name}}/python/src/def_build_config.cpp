@@ -19,13 +19,13 @@ namespace {{cookiecutter.cpp_namespace}} {
     void def_build_config(py::module & m)
     {
 
-        struct Configuration        {
+        struct BuildConfiguration        {
             
         };
 
 
-        py::class_<Configuration>(m, "Configuration",
-        "This class show the compile Configuration\n"
+        py::class_<BuildConfiguration>(m, "BuildConfiguration",
+        "This class show the compile/build configuration\n"
         "Of {{cookiecutter.python_package_name}}\n"
         )
         .def_property_readonly_static("VERSION_MAJOR", [](py::object /* self */) {

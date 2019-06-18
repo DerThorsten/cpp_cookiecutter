@@ -115,9 +115,7 @@ script:
 - ./test_cpptools
 - cd ..
 # test the python bindings
-- cd python/module
-- python -m pytest ../../../python/tests
-- cd ../..
+- make python-test
 # test the examples
 - cd examples
 - ./hello_world

@@ -23,9 +23,9 @@ TEST_CASE("check version"){
         #error "{{cookiecutter.cpp_macro_prefix}}_VERSION_PATCH is undefined"
     #endif
 
-    CHECK_GE({{cookiecutter.cpp_macro_prefix}}_VERSION_MAJOR , 0);
-    CHECK_GE({{cookiecutter.cpp_macro_prefix}}_VERSION_MINOR , 0);
-    CHECK_GE({{cookiecutter.cpp_macro_prefix}}_VERSION_PATCH , 0);
+    CHECK_EQ({{cookiecutter.cpp_macro_prefix}}_VERSION_MAJOR , 0);
+    CHECK_EQ({{cookiecutter.cpp_macro_prefix}}_VERSION_MINOR , 1);
+    CHECK_EQ({{cookiecutter.cpp_macro_prefix}}_VERSION_PATCH , 0);
 }
 
 

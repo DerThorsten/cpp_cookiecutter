@@ -79,20 +79,6 @@ target_include_directories(${INTERFACE_LIB_NAME}
                 $<INSTALL_INTERFACE:include>)
 
 
-# Tests
-# ============
-OPTION(BUILD_TESTS "${PROJECT_NAME} test suite" ON)
-# OPTION(DOWNLOAD_DOCTEST "build doctest from downloaded sources" ON)
-
-# if(DOWNLOAD_DOCTEST)
-#     set(BUILD_TESTS ON)
-# endif()
-
-if(BUILD_TESTS)
-    add_subdirectory(test)
-endif()
-
-
 
 # Benchmark
 # ============
@@ -115,6 +101,21 @@ if(BUILD_PYTHON)
     add_subdirectory(python)
 endif()
 {% endif %}
+
+
+# Tests
+###########
+
+OPTION(BUILD_TESTS "${PROJECT_NAME} test suite" ON)
+# OPTION(DOWNLOAD_DOCTEST "build doctest from downloaded sources" ON)
+
+# if(DOWNLOAD_DOCTEST)
+#     set(BUILD_TESTS ON)
+# endif()
+
+if(BUILD_TESTS)
+    add_subdirectory(test)
+endif()
 
 # Examples
 # ============
