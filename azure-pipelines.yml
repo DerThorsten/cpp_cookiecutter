@@ -13,6 +13,9 @@ jobs:
       #     PY_VERSION: 3.6
       #   py37:
       #     PY_VERSION: 3.7
+    variables:
+      repoName: '$(build.repository.name)'
+
     steps:
         # NOTE: On Linux, there is no write permission in the miniconda installation,
         # and the CondaEnvironment@1 does not honor a prefix. Therefore we can *not*
@@ -28,7 +31,7 @@ jobs:
           conda install cookiecutter -c conda-forge  || exit 1
           conda install conda-build || exit 1
           cd .. || exit 1
-          cookiecutter cpp_cookiecutter --overwrite-if-exists --no-input || exit 1
+          cookiecutter $(modulePath) --overwrite-if-exists --no-input || exit 1
           cd cpptools || exit 1
           conda env create -f cpptools-dev-requirements.yml || exit 1
           source activate cpptools-dev-requirements || exit 1
@@ -46,6 +49,8 @@ jobs:
       #     PY_VERSION: 3.6
       #   py37:
       #     PY_VERSION: 3.7
+    variables:
+      repoName: '$(build.repository.name)'
     steps:
       # This build is practially identical to the Linux build above. One ugly part
       # is the selection of the XCode version. The documentation suggests to either
@@ -86,10 +91,11 @@ jobs:
           conda install cookiecutter -c conda-forge  || exit 1
           conda install conda-build || exit 1
           cd .. || exit 1
-          cookiecutter cpp_cookiecutter --overwrite-if-exists --no-input || exit 1
+          cookiecutter $(repoName) --overwrite-if-exists --no-input || exit 1
           cd cpptools || exit 1
-          conda env create -f cpptools-dev-requirements.yml || exit 1
-          source activate cpptools-dev-requirements || exit 1
+          echo "Activating conda environment" || exit 1
+          conda env create --mkdir --prefix $AGENT_WORKFOLDER/envs/cpptools-dev-requirements  -f cpptools-dev-requirements.yml || exit 1
+          source $CONDA/bin/activate $AGENT_WORKFOLDER/envs/cpptools-dev-requirements || exit 1
           mkdir build || exit 1
           cmake .. || exit 1
           make -j2 || exit 1
@@ -105,6 +111,8 @@ jobs:
       #     VS_VERSION: 2015
       #   # py27:
       #   #   PY_VERSION: 2.7
+    variables:
+      repoName: '$(build.repository.name)'
     steps:
       # installed compilers:
       # "c:\Program Files (x86)\Microsoft Visual Studio\2017"
@@ -121,7 +129,7 @@ jobs:
           conda install cookiecutter -c conda-forge  || exit 1
           conda install conda-build || exit 1
           cd .. || exit 1
-          cookiecutter cpp_cookiecutter --overwrite-if-exists --no-input || exit 1
+          cookiecutter %repoName% --overwrite-if-exists --no-input || exit 1
           cd cpptools || exit 1
           conda env create -f cpptools-dev-requirements.yml || exit 1
           source activate cpptools-dev-requirements || exit 1
