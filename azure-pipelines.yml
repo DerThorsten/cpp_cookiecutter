@@ -13,6 +13,7 @@ jobs:
       #     PY_VERSION: 3.6
       #   py37:
       #     PY_VERSION: 3.7
+    workingDirectory: 'repo'
     variables:
       repoName: '$(build.repository.name)'
 
@@ -31,7 +32,7 @@ jobs:
           conda install cookiecutter -c conda-forge  || exit 1
           conda install conda-build || exit 1
           cd .. || exit 1
-          cookiecutter $(modulePath) --overwrite-if-exists --no-input || exit 1
+          cookiecutter repo --overwrite-if-exists --no-input || exit 1
           cd cpptools || exit 1
           conda env create -f cpptools-dev-requirements.yml || exit 1
           source activate cpptools-dev-requirements || exit 1
@@ -49,6 +50,7 @@ jobs:
       #     PY_VERSION: 3.6
       #   py37:
       #     PY_VERSION: 3.7
+    workingDirectory: 'repo'
     variables:
       repoName: '$(build.repository.name)'
     steps:
@@ -91,7 +93,7 @@ jobs:
           conda install cookiecutter -c conda-forge  || exit 1
           conda install conda-build || exit 1
           cd .. || exit 1
-          cookiecutter $(repoName) --overwrite-if-exists --no-input || exit 1
+          cookiecutter repo --overwrite-if-exists --no-input || exit 1
           cd cpptools || exit 1
           echo "Activating conda environment" || exit 1
           conda env create --mkdir --prefix $AGENT_WORKFOLDER/envs/cpptools-dev-requirements  -f cpptools-dev-requirements.yml || exit 1
@@ -111,6 +113,7 @@ jobs:
       #     VS_VERSION: 2015
       #   # py27:
       #   #   PY_VERSION: 2.7
+    workingDirectory: 'repo'
     variables:
       repoName: '$(build.repository.name)'
     steps:
@@ -129,7 +132,7 @@ jobs:
           conda install cookiecutter -c conda-forge  || exit 1
           conda install conda-build || exit 1
           cd .. || exit 1
-          cookiecutter %repoName% --overwrite-if-exists --no-input || exit 1
+          cookiecutter repo --overwrite-if-exists --no-input || exit 1
           cd cpptools || exit 1
           conda env create -f cpptools-dev-requirements.yml || exit 1
           source activate cpptools-dev-requirements || exit 1
