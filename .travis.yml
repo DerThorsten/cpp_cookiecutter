@@ -117,7 +117,7 @@ script:
 # test the python bindings
 - cd python/module
 - python -m pytest ../../../python/tests
-- cd ..
+- cd ../..
 # test the examples
 - cd examples
 - ./hello_world
