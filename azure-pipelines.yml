@@ -87,7 +87,6 @@ jobs:
         inputs:
           updateConda: false
       - script: |
-
           conda config --set always_yes yes --set changeps1 no || exit 1
           conda update -q conda || exit 1
           conda env create -n myroot ||exit 1

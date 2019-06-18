@@ -6,9 +6,10 @@ Cpp Cookiecutter
 .. image:: https://img.shields.io/travis/DerThorsten/cpp_cookiecutter.svg
         :target: https://travis-ci.org/DerThorsten/cpp_cookiecutter
 
-.. image:: https://img.shields.io/travis/DerThorsten/cpp_cookiecutter.svg
-        :target: https://travis-ci.org/DerThorsten/cpp_cookiecutter
+.. image:: https://circleci.com/gh/DerThorsten/cpp_cookiecutter.svg?style=svg
+    :target: https://circleci.com/gh/DerThorsten/cpp_cookiecutter
 
+    
 Features
 --------
 
