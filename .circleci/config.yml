@@ -35,6 +35,14 @@ jobs:
       - *run_tests
 workflows:
   version: 2
+  
   my_test:
     jobs:
       - test_job
+
+  nightly-test:
+    triggers:
+       - schedule:
+           cron: "0 0 * * *"
+    jobs:
+       - test_job
