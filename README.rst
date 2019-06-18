@@ -9,7 +9,11 @@ Cpp Cookiecutter
 .. image:: https://circleci.com/gh/DerThorsten/cpp_cookiecutter.svg?style=svg
     :target: https://circleci.com/gh/DerThorsten/cpp_cookiecutter
 
-    
+.. image:: https://dev.azure.com/DerThorsten/cpp_cookiecutter/_apis/build/status/DerThorsten.cpp_cookiecutter
+    :target: fobar
+
+
+
 Features
 --------
 
