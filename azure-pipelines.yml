@@ -41,11 +41,11 @@ jobs:
       vmImage: 'xcode9-macos10.13'
     strategy:
       maxParallel: 2
-      matrix:
-        py36:
-          PY_VERSION: 3.6
-        py37:
-          PY_VERSION: 3.7
+      # matrix:
+      #   py36:
+      #     PY_VERSION: 3.6
+      #   py37:
+      #     PY_VERSION: 3.7
     steps:
       # This build is practially identical to the Linux build above. One ugly part
       # is the selection of the XCode version. The documentation suggests to either
@@ -99,12 +99,12 @@ jobs:
       vmImage: 'vs2017-win2016'
     strategy:
       maxParallel: 2
-      matrix:
-        py36:
-          PY_VERSION: 3.6
-          VS_VERSION: 2015
-        # py27:
-        #   PY_VERSION: 2.7
+      # matrix:
+      #   py36:
+      #     PY_VERSION: 3.6
+      #     VS_VERSION: 2015
+      #   # py27:
+      #   #   PY_VERSION: 2.7
     steps:
       # installed compilers:
       # "c:\Program Files (x86)\Microsoft Visual Studio\2017"
@@ -116,19 +116,6 @@ jobs:
         inputs:
           updateConda: false
       - script: |
-          IF "%VS_VERSION%"=="2015" (
-              echo Activating Visual Studio 2015 [64bit]
-              call "c:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x64 || exit 1
-          ) ELSE (
-              IF "%VS_VERSION%"=="2017" (
-                  echo Activating Visual Studio 2017 [64bit]
-                  call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build\vcvars64.bat" || exit 1
-              ) ELSE (
-                  echo Visual Studio version not specified or unsupported
-                  exit 1
-              )
-          )
-
           conda config --set always_yes yes --set changeps1 no || exit 1
           conda update -q conda || exit 1
           conda install cookiecutter -c conda-forge  || exit 1
