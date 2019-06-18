@@ -14,7 +14,7 @@ variables:
       name: Run tests
       command: |
         cd ..
-        cookiecutter cpp_cookiecutter --overwrite-if-exists --no-input
+        cookiecutter repo --overwrite-if-exists --no-input
         cd cpptools
         conda env create -f cpptools-dev-requirements.yml
         source activate cpptools-dev-requirements
@@ -27,7 +27,7 @@ jobs:
      - image: continuumio/miniconda3:4.5.12
     working_directory: ~/repo
     steps:
-      - checkout cpp_cookiecutter
+      - checkout
       - *prepare_conda
       - *run_tests
 workflows:
