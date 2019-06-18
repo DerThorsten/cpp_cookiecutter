@@ -36,6 +36,7 @@ jobs:
           conda env create -f cpptools-dev-requirements.yml || exit 1
           source activate cpptools-dev-requirements || exit 1
           mkdir build || exit 1
+          cd build || exit 1
           cmake .. || exit 1
           make -j2 || exit 1
           echo "Completed script successfully" || exit 1
@@ -100,6 +101,7 @@ jobs:
           conda env create --mkdir --prefix $AGENT_WORKFOLDER/envs/cpptools-dev-requirements  -f cpptools-dev-requirements.yml || exit 1
           source $CONDA/bin/activate $AGENT_WORKFOLDER/envs/cpptools-dev-requirements || exit 1
           mkdir build || exit 1
+          cd build || exit 1
           cmake .. || exit 1
           make -j2 || exit 1
           echo "Completed script successfully" || exit 1
@@ -135,7 +137,7 @@ jobs:
           cookiecutter %repoDir% --overwrite-if-exists --no-input || exit 1
           cd cpptools || exit 1
           conda env create -f cpptools-dev-requirements.yml || exit 1
-          source activate cpptools-dev-requirements || exit 1
+          activate cpptools-dev-requirements || exit 1
           mkdir build || exit 1
           cmake .. -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release  ^
                 -DDEPENDENCY_SEARCH_PREFIX="%CONDA_PREFIX%\Library" -DCMAKE_PREFIX_PATH="%CONDA_PREFIX%\Library" || exit 1
