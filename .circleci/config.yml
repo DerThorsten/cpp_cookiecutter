@@ -35,7 +35,7 @@ jobs:
       - *run_tests
 workflows:
   version: 2
-  
+
   my_test:
     jobs:
       - test_job
@@ -44,5 +44,9 @@ workflows:
     triggers:
        - schedule:
            cron: "0 0 * * *"
+            filters:
+              branches:
+                only:
+                  - master
     jobs:
        - test_job
