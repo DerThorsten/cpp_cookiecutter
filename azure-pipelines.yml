@@ -8,11 +8,11 @@ jobs:
       vmImage: 'ubuntu-16.04'
     strategy:
       maxParallel: 2
-      matrix:
-        py36:
-          PY_VERSION: 3.6
-        py37:
-          PY_VERSION: 3.7
+      # matrix:
+      #   py36:
+      #     PY_VERSION: 3.6
+      #   py37:
+      #     PY_VERSION: 3.7
     steps:
         # NOTE: On Linux, there is no write permission in the miniconda installation,
         # and the CondaEnvironment@1 does not honor a prefix. Therefore we can *not*
@@ -28,7 +28,7 @@ jobs:
           conda install cookiecutter -c conda-forge  || exit 1
           conda install conda-build || exit 1
           cd .. || exit 1
-          cookiecutter repo --overwrite-if-exists --no-input || exit 1
+          cookiecutter cpp_cookiecutter --overwrite-if-exists --no-input || exit 1
           cd cpptools || exit 1
           conda env create -f cpptools-dev-requirements.yml || exit 1
           source activate cpptools-dev-requirements || exit 1
@@ -86,7 +86,7 @@ jobs:
           conda install cookiecutter -c conda-forge  || exit 1
           conda install conda-build || exit 1
           cd .. || exit 1
-          cookiecutter repo --overwrite-if-exists --no-input || exit 1
+          cookiecutter cpp_cookiecutter --overwrite-if-exists --no-input || exit 1
           cd cpptools || exit 1
           conda env create -f cpptools-dev-requirements.yml || exit 1
           source activate cpptools-dev-requirements || exit 1
@@ -134,7 +134,7 @@ jobs:
           conda install cookiecutter -c conda-forge  || exit 1
           conda install conda-build || exit 1
           cd .. || exit 1
-          cookiecutter repo --overwrite-if-exists --no-input || exit 1
+          cookiecutter cpp_cookiecutter --overwrite-if-exists --no-input || exit 1
           cd cpptools || exit 1
           conda env create -f cpptools-dev-requirements.yml || exit 1
           source activate cpptools-dev-requirements || exit 1
