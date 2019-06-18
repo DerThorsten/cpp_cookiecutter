@@ -18,6 +18,7 @@ variables:
         cd cpptools
         conda env create -f cpptools-dev-requirements.yml
         source activate cpptools-dev-requirements
+        conda install -c anaconda gcc 
         mkdir build
         cd build
         cmake ..
