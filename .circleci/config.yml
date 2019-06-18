@@ -27,7 +27,7 @@ jobs:
      - image: continuumio/miniconda3:4.5.12
     working_directory: ~/repo
     steps:
-      - checkout
+      - checkout cpp_cookiecutter
       - *prepare_conda
       - *run_tests
 workflows:
