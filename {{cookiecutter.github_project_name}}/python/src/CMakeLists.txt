@@ -27,5 +27,15 @@ set(PY_INCLUDE_DIRS
 )
 target_include_directories(${PY_MOD_LIB_NAME} PUBLIC  ${PY_INCLUDE_DIRS})
 
+
+
+add_custom_command(TARGET ${PY_MOD_LIB_NAME} POST_BUILD 
+  COMMAND "${CMAKE_COMMAND}" -E copy 
+     "$<TARGET_FILE:${PY_MOD_LIB_NAME}>"
+     "${CMAKE_BINARY_DIR}/python/module/${PY_MOD_NAME}/$<TARGET_FILE_NAME:${PY_MOD_LIB_NAME}>" 
+  COMMENT "Copying to output directory")
+
+
+
 install(TARGETS ${PY_MOD_LIB_NAME} 
     DESTINATION ${PYTHON_MODULE_INSTALL_DIR}/${PY_MOD_NAME}/)

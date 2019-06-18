@@ -20,8 +20,16 @@ endif()
 SET(PYTHON_MODULE_INSTALL_DIR ${PYTHON_MODULE_INSTALL_DIR}
     CACHE PATH "where to install the Python package" FORCE)
 
+
+# temporary python module dir
+
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/python/module/${PY_MOD_NAME})
+
+
 add_subdirectory(src)
 
+
+file(COPY ${CMAKE_SOURCE_DIR}/python/module/${PY_MOD_NAME} DESTINATION ${CMAKE_BINARY_DIR}/python/module)
 
 
 
