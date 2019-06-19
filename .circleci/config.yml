@@ -64,6 +64,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - *install_build_essential
       - *prepare_conda
       - *run_test_conda_build
 
