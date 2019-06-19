@@ -31,7 +31,7 @@ variables:
     run:
       name: Run tests
       command: |
-        bash ./deploy.sh
+        bash ./ci_scripts/citest.sh
 
 
 
