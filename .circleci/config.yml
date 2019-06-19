@@ -40,7 +40,7 @@ variables:
     run:
       name: Run tests
       command: |
-        conda install conda-build
+        conda install conda-build make
         cd ..
         cookiecutter repo --overwrite-if-exists --no-input
         cd cpptools
