@@ -65,7 +65,6 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - *prepare_conda
       - *run_conda_build
 
 workflows:
