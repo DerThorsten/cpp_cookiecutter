@@ -1,5 +1,6 @@
 version: 2
 variables:
+
   prepare_conda: &prepare_conda
     run:
       name: Install from dev-requirements.yml
@@ -61,10 +62,11 @@ jobs:
 
   conda_build_job:
     docker:
-     - image: condaforge/linux-anvil:latest
+     - image: continuumio/miniconda3:4.5.12
     working_directory: ~/repo
     steps:
       - checkout
+      - *prepare_conda
       - *run_conda_build
 
 workflows:
