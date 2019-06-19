@@ -25,6 +25,21 @@ variables:
         cmake ..
         make -j2
         make python-test
+        cd ..
+
+  run_test_script: &run_test_script
+    run:
+      name: Run tests
+      command: |
+        ./ci_scripts/citest.sh repo
+
+
+
+  run_conda_build: &run_conda_build
+    run:
+      name: Run conda build
+      command: |
+        conda build recipe -c conda-forge
 
 jobs:
   test_job:
@@ -35,12 +50,32 @@ jobs:
       - checkout
       - *prepare_conda
       - *run_tests
+
+  test_job_sh:
+    docker:
+     - image: continuumio/miniconda3:4.5.12
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - *run_test_script
+
+  conda_build_job:
+    docker:
+     - image: condaforge/linux-anvil:latest
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - *prepare_conda
+      - *run_conda_build
+
 workflows:
   version: 2
 
   my_test:
     jobs:
+      - test_job_sh
       - test_job
+      - conda_build_job
 
   nightly-test:
     triggers:
@@ -51,4 +86,6 @@ workflows:
                 only:
                   - master
     jobs:
+       - test_job_sh
        - test_job
+       - conda_build_job

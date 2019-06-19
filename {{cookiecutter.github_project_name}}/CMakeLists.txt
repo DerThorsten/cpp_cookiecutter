@@ -79,6 +79,7 @@ target_include_directories(${INTERFACE_LIB_NAME}
                 $<INSTALL_INTERFACE:include>)
 
 
+add_custom_target(test)
 
 # Benchmark
 # ============

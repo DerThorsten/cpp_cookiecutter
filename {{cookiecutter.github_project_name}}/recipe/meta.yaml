@@ -12,17 +12,18 @@ build:
 
 requirements:
   build:
-    - cmake >=3.1
+    - cmake>=3.1
     {% if cookiecutter.python_bindings == 'yes' -%}
-    - python >= 3.6
-    - numpy
-    - xtl
-    - xtensor
-    - xtensor-python
+    - python>=3.6
+    - numpy>=1.16
+    - conda-forge::xtl
+    - conda-forge::xtensor
+    - conda-forge::xtensor-python
+    - conda-forge::pybind11
     {% endif %}
   run:
-    - numpy
-    - python >= 3.6
+    - numpy>=1.16
+    - python>=3.6
 test:
   commands:
     - test -d ${PREFIX}/include/{{cookiecutter.cpp_root_folder_name}}           # [unix]
