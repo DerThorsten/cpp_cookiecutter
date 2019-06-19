@@ -1,15 +1,23 @@
 version: 2
 variables:
-  prepare_conda: &prepare_conda
+
+
+  install_build_essential: &install_build_essential
     run:
       name: Install from dev-requirements.yml
       command: |
         apt-get update
         apt-get install -y build-essential
+
+
+  prepare_conda: &prepare_conda
+    run:
+      name: Install from dev-requirements.yml
+      command: |
         conda config --set always_yes yes --set changeps1 no
         conda update -q conda
         conda install cookiecutter -c conda-forge 
-        conda install conda-build
+
 
   run_tests: &run_tests
     run:
@@ -32,6 +40,7 @@ variables:
     run:
       name: Run tests
       command: |
+        conda install conda-build
         cd ..
         cookiecutter repo --overwrite-if-exists --no-input
         cd cpptools
@@ -45,6 +54,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - *install_build_essential
       - *prepare_conda
       - *run_tests
 
