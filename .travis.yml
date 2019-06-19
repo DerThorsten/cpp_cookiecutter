@@ -107,11 +107,15 @@ install:
     - cmake ..
     - make -j2 
 
+
+
 script:
 # test the actual test-suite
 - cd test
 - ./test_cpptools
 - cd ..
+# test the python bindings
+- make python-test
 # test the examples
 - cd examples
 - ./hello_world

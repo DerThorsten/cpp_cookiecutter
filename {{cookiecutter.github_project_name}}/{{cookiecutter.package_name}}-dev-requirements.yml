@@ -8,6 +8,7 @@ dependencies:
   - cmake >=3.1
   - sphinx 
   - breathe
+  - pytest
   {% if cookiecutter.use_xtensor == 'yes' -%}
   - xtl
   - xtensor

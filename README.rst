@@ -3,14 +3,24 @@ Cpp Cookiecutter
 =================================================
 
 
-.. image:: https://img.shields.io/travis/DerThorsten/cpp_cookiecutter.svg
-        :target: https://travis-ci.org/DerThorsten/cpp_cookiecutter
+.. image:: https://travis-ci.org/DerThorsten/cpp_cookiecutter.svg?branch=master
+    :target: https://travis-ci.org/DerThorsten/cpp_cookiecutter
 
-.. image:: https://circleci.com/gh/DerThorsten/cpp_cookiecutter.svg?style=svg
-    :target: https://circleci.com/gh/DerThorsten/cpp_cookiecutter
+.. image:: https://circleci.com/gh/DerThorsten/cpp_cookiecutter/tree/master.svg?style=svg
+    :target: https://circleci.com/gh/DerThorsten/cpp_cookiecutter/tree/master
 
-.. image:: https://dev.azure.com/derthorstenbeier/cpp_cookiecutter/_apis/build/status/derthorsten.cpp_cookiecutter
-    :target: (https://dev.azure.com/derthorstenbeier/cpp_cookiecutter/_build/latest?definitionId=1
+.. image:: https://dev.azure.com/derthorstenbeier/cpp_cookiecutter/_apis/build/status/DerThorsten.cpp_cookiecutter?branchName=master&jobName=Linux
+    :target: https://dev.azure.com/derthorstenbeier/cpp_cookiecutter/_build/latest?definitionId=1&branchName=master
+
+.. image:: https://dev.azure.com/derthorstenbeier/cpp_cookiecutter/_apis/build/status/DerThorsten.cpp_cookiecutter?branchName=master&jobName=macOS
+    :target: https://dev.azure.com/derthorstenbeier/cpp_cookiecutter/_build/latest?definitionId=1&branchName=master
+
+.. image:: https://dev.azure.com/derthorstenbeier/cpp_cookiecutter/_apis/build/status/DerThorsten.cpp_cookiecutter?branchName=master&jobName=Windows
+    :target: https://dev.azure.com/derthorstenbeier/cpp_cookiecutter/_build/latest?definitionId=1&branchName=master
+
+
+
+
 
 
 

@@ -24,6 +24,8 @@ variables:
         cd build
         cmake ..
         make -j2
+        make python-test
+
 jobs:
   test_job:
     docker:

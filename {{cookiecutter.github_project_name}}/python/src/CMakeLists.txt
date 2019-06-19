@@ -13,7 +13,11 @@ set(PY_MOD_LIB_NAME _${PY_MOD_NAME})
 
 
 # add the python library
-pybind11_add_module(${PY_MOD_LIB_NAME}  main.cpp)
+pybind11_add_module(${PY_MOD_LIB_NAME}  
+    main.cpp
+    def_build_config.cpp
+    def_myclass.cpp
+)
 
 # `link` against pybind11 interface module
 target_link_libraries(${PY_MOD_LIB_NAME} PUBLIC  
@@ -34,6 +38,12 @@ add_custom_command(TARGET ${PY_MOD_LIB_NAME} POST_BUILD
      "$<TARGET_FILE:${PY_MOD_LIB_NAME}>"
      "${CMAKE_BINARY_DIR}/python/module/${PY_MOD_NAME}/$<TARGET_FILE_NAME:${PY_MOD_LIB_NAME}>" 
   COMMENT "Copying to output directory")
+
+
+
+
+add_custom_target(python-test COMMAND ${PYTHON_EXECUTABLE}  -m pytest ../../../python/  WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/python/module" )
+add_dependencies(python-test ${PY_MOD_LIB_NAME} )
 
 
 
