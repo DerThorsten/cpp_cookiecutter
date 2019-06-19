@@ -32,6 +32,9 @@ variables:
     run:
       name: Run tests
       command: |
+        cd ..
+        cookiecutter repo --overwrite-if-exists --no-input
+        cd cpptools
         conda build recipe -c conda-forge
 
 
