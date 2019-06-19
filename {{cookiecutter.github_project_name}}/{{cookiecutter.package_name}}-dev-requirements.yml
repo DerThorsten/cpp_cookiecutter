@@ -9,15 +9,11 @@ dependencies:
   - sphinx 
   - breathe
   - pytest
-  {% if cookiecutter.use_xtensor == 'yes' -%}
   - xtl
   - xtensor
-  {% endif %}
   {% if cookiecutter.python_bindings == 'yes' -%}
   - python >=3.6
   - numpy
-  {% if cookiecutter.use_xtensor == 'yes' -%}
   - xtensor-python
-  {% endif %}
   - pybind11
   {% endif %}

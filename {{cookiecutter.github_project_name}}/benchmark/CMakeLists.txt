@@ -53,10 +53,7 @@ target_include_directories(  ${${PROJECT_NAME}_BENCHMARK_TARGET} PRIVATE
 target_link_libraries( ${${PROJECT_NAME}_BENCHMARK_TARGET}
     ${INTERFACE_LIB_NAME}
     ${GBENCHMARK_LIBRARIES}
-    {% if cookiecutter.use_xtensor == 'yes' -%}
     xtensor
-    {% endif %}
-
 )
 
 if (NOT CMAKE_CXX_COMPILER_ID MATCHES "Clang" )

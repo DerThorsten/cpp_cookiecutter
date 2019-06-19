@@ -5,8 +5,6 @@ channels:
 
 dependencies:
   - cmake
-  {% if cookiecutter.use_xtensor == 'yes' -%}
   - xtensor
   - xtensor-python
-  {% endif %}
   - breathe

@@ -10,22 +10,31 @@
         :alt: Documentation Status               
 
 
+
+.. image:: https://travis-ci.org/{{cookiecutter.github_user_name}}/{{cookiecutter.github_project_name}}.svg?branch=master
+    :target: https://travis-ci.org/{{cookiecutter.github_user_name}}/{{cookiecutter.github_project_name}}
+
+.. image:: https://circleci.com/gh/{{cookiecutter.github_user_name}}/{{cookiecutter.github_project_name}}/tree/master.svg?style=svg
+    :target: https://circleci.com/gh/{{cookiecutter.github_user_name}}/{{cookiecutter.github_project_name}}/tree/master
+
+.. image:: https://dev.azure.com/{{cookiecutter.azure_user_name}}/{{cookiecutter.github_project_name}}/_apis/build/status/{{cookiecutter.github_user_name}}.{{cookiecutter.github_project_name}}?branchName=master&jobName=Linux
+    :target: https://dev.azure.com/{{cookiecutter.azure_user_name}}/{{cookiecutter.github_project_name}}/_build/latest?definitionId=1&branchName=master
+
+.. image:: https://dev.azure.com/{{cookiecutter.azure_user_name}}/{{cookiecutter.github_project_name}}/_apis/build/status/{{cookiecutter.github_user_name}}.{{cookiecutter.github_project_name}}?branchName=master&jobName=macOS
+    :target: https://dev.azure.com/{{cookiecutter.azure_user_name}}/{{cookiecutter.github_project_name}}/_build/latest?definitionId=1&branchName=master
+
+.. image:: https://dev.azure.com/{{cookiecutter.azure_user_name}}/{{cookiecutter.github_project_name}}/_apis/build/status/{{cookiecutter.github_user_name}}.{{cookiecutter.github_project_name}}?branchName=master&jobName=Windows
+    :target: https://dev.azure.com/{{cookiecutter.azure_user_name}}/{{cookiecutter.github_project_name}}/_build/latest?definitionId=1&branchName=master
+
+
 Features
 --------
 
 Current features include: 
   * modern C++ 14
-  * build system with modern CMake 
+  * build system with modernish CMake 
 
 
-
-
-Features
---------
-
-Current features include: 
-  * modern C++ 14
-  * build system with modern CMake 
 
 
 

@@ -23,17 +23,21 @@ variables:
     run:
       name: Run tests
       command: |
-        cd ..
-        cookiecutter repo --overwrite-if-exists --no-input
-        cd cpptools
-        conda env create -f cpptools-dev-requirements.yml
-        source activate cpptools-dev-requirements
+        conda env create -f {{cookiecutter.package_name}}-dev-requirements.yml
+        source activate {{cookiecutter.package_name}}-dev-requirements
         mkdir build
         cd build
         cmake ..
         make -j2
         make cpp-test
+        {% if cookiecutter.python_bindings == 'yes' -%}
         make python-test
+        {% endif %}
+        cd examples
+        ./hello_world
+        cd ..
+        cd benchmark
+        ./benchmark_{{cookiecutter.cmake_project_name}}
         cd ..
 
   run_test_conda_build: &run_test_conda_build
@@ -41,9 +45,6 @@ variables:
       name: Run tests
       command: |
         conda install conda-build make
-        cd ..
-        cookiecutter repo --overwrite-if-exists --no-input
-        cd cpptools
         conda build recipe -c conda-forge
 
 

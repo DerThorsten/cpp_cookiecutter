@@ -1,11 +1,10 @@
 #-------------------------------------------------------------------------------------------------------------------
 # Add The module
 #-------------------------------------------------------------------------------------------------------------------
-{% if cookiecutter.use_xtensor == 'yes' -%}
 find_package(xtl               REQUIRED)
 find_package(xtensor           REQUIRED)
 find_package(xtensor-python    CONFIG  REQUIRED)
-{% endif %}
+
 
 
 set(PY_MOD_NAME {{cookiecutter.python_package_name}} )
@@ -42,9 +41,8 @@ add_custom_command(TARGET ${PY_MOD_LIB_NAME} POST_BUILD
 
 
 
-add_custom_target(python-test COMMAND ${PYTHON_EXECUTABLE}  -m pytest ../../../python/  WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/python/module" )
+add_custom_target(python-test COMMAND ${PYTHON_EXECUTABLE}  -m pytest "${CMAKE_SOURCE_DIR}/python/tests"  WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/python/module" )
 add_dependencies(python-test ${PY_MOD_LIB_NAME} )
-
 
 
 install(TARGETS ${PY_MOD_LIB_NAME} 

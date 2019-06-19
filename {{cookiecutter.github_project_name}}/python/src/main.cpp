@@ -78,7 +78,10 @@ namespace {{cookiecutter.cpp_namespace}} {
     // implementation in def_myclass.cpp
     void def_class(py::module & m);
 
-    // implementation in export_myclass.cpp
+    // implementation in def_myclass.cpp
+    void def_build_config(py::module & m);
+
+    // implementation in def.cpp
     void def_build_config(py::module & m);
 
 }

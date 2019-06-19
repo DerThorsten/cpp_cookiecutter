@@ -5,29 +5,38 @@ package:
 source:
   path: ../
 
-
-
 build:
   number: 0
 
 requirements:
   build:
-    - cmake >=3.1
+    - cmake>=3.1
+    - conda-forge::xtl
+    - conda-forge::xtensor
     {% if cookiecutter.python_bindings == 'yes' -%}
-    - python >= 3.6
-    - numpy
-    - xtl
-    - xtensor
-    - xtensor-python
+    - python>=3.6
+    - numpy>=1.16
+    - conda-forge::pybind11
+    - conda-forge::xtensor-python
     {% endif %}
   run:
-    - numpy
-    - python >= 3.6
+    {% if cookiecutter.python_bindings == 'yes' -%}
+    - numpy>=1.16
+    - python>=3.6
+    {% endif %}
 test:
+  {% if cookiecutter.python_bindings == 'yes' -%}
+  requires:
+    - pytest
+  imports:
+    - {{cookiecutter.conda_package_name}}
+  {% endif %}
   commands:
     - test -d ${PREFIX}/include/{{cookiecutter.cpp_root_folder_name}}           # [unix]
     - test -f ${PREFIX}/include/{{cookiecutter.cpp_root_folder_name}}/{{ cookiecutter.package_name}}.hpp # [unix]
     - if exist %LIBRARY_PREFIX%\include\{{cookiecutter.cpp_root_folder_name}}\{{ cookiecutter.package_name}}.hpp (exit 0) else (exit 1)  # [win]
+    # - make cpp-test
+    # -  make python-test
 
 about:
   home:  https://github.com/{{cookiecutter.github_user_name}}/{{cookiecutter.github_project_name}}
