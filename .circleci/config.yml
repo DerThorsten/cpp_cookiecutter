@@ -30,8 +30,8 @@ variables:
   run_test_script: &run_test_script
     run:
       name: Run tests
-      command: |
-        ./ci_scripts/citest.sh repo
+      commands:
+        - bash ./deploy.sh
 
 
 
