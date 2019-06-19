@@ -80,6 +80,8 @@ target_include_directories(${INTERFACE_LIB_NAME}
 
 
 
+add_custom_target(test)
+
 # Benchmark
 # ============
 OPTION(BUILD_BENCHMARK "${PROJECT_NAME} test suite" ON)
