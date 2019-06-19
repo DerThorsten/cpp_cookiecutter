@@ -30,8 +30,8 @@ variables:
   run_test_script: &run_test_script
     run:
       name: Run tests
-      commands:
-        - bash ./deploy.sh
+      command: |
+        bash ./deploy.sh
 
 
 
