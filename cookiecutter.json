@@ -17,6 +17,7 @@
     "python_bindings":              ["yes", "no"],
     "python_package_name":          "{{ cookiecutter.project_name|lower|replace(' ', '_')|replace('-', '_') }}",
     "github_user_name":             "JohnDoe",
+    "azure_user_name":              "{{cookiecutter.github_user_name}}",
     "open_source_license":          ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
     "summary":                      "{{ cookiecutter.package_name }} is a modern C++ library",
     "description":                  "{{ cookiecutter.package_name }} is a C++ library",
