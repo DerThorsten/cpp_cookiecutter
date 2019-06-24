@@ -38,8 +38,15 @@ jobs:
           {% if cookiecutter.python_bindings == 'yes' -%}
           make python-test || exit 1
           {% endif %}
+          echo "run cpp example" || exit 1
+          cd examples || exit 1
+          ./hello_world || exit 1
+          cd .. || exit 1
+          echo "run cpp benchmark" || exit 1
+          cd benchmark || exit 1
+          ./benchmark_{{cookiecutter.cmake_project_name}} || exit 1
+          cd .. || exit 1
           echo "Completed script successfully" || exit 1
-
 
   - job: macOS
     pool:
@@ -112,6 +119,14 @@ jobs:
           {% if cookiecutter.python_bindings == 'yes' -%}
           make python-test || exit 1
           {% endif %}
+          echo "run cpp example" || exit 1
+          cd examples || exit 1
+          ./hello_world || exit 1
+          cd .. || exit 1
+          echo "run cpp benchmark" || exit 1
+          cd benchmark || exit 1
+          ./benchmark_{{cookiecutter.cmake_project_name}} || exit 1
+          cd .. || exit 1
           echo "Completed script successfully" || exit 1
   - job: Windows
     pool:
@@ -149,5 +164,12 @@ jobs:
           {% if cookiecutter.python_bindings == 'yes' -%}
           make python-test || exit 1
           {% endif %}
+          echo "run cpp example" || exit 1
+          cd examples || exit 1
+          ./hello_world || exit 1
+          cd .. || exit 1
+          echo "run cpp benchmark" || exit 1
+          cd benchmark || exit 1
+          ./benchmark_{{cookiecutter.cmake_project_name}} || exit 1
+          cd .. || exit 1
           echo "Completed script successfully" || exit 1
-          echo Completed script successfully || exit 1

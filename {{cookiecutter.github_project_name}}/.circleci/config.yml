@@ -33,6 +33,11 @@ variables:
         {% if cookiecutter.python_bindings == 'yes' -%}
         make python-test
         {% endif %}
+        cd examples
+        ./hello_world
+        cd ..
+        cd benchmark
+        ./benchmark_{{cookiecutter.cmake_project_name}}
         cd ..
 
   run_test_conda_build: &run_test_conda_build
