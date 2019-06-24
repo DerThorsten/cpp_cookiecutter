@@ -104,7 +104,10 @@ script:
     - cd build
     - cmake ..
     - make -j2 
-
+    - make cpp-test
+    {% if cookiecutter.python_bindings == 'yes' -%}
+    - make python-test
+    {% endif %}
     # test the actual test-suite
     - cd test
     - ./test_{{cookiecutter.cmake_project_name}}

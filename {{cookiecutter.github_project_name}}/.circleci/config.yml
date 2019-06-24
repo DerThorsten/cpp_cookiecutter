@@ -30,7 +30,9 @@ variables:
         cmake ..
         make -j2
         make cpp-test
+        {% if cookiecutter.python_bindings == 'yes' -%}
         make python-test
+        {% endif %}
         cd ..
 
   run_test_conda_build: &run_test_conda_build
