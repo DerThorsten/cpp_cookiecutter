@@ -78,10 +78,6 @@ target_include_directories(${INTERFACE_LIB_NAME}
     INTERFACE   $<BUILD_INTERFACE:${PROJECT_INCLUDE_DIR}>
                 $<INSTALL_INTERFACE:include>)
 
-
-
-add_custom_target(test)
-
 # Benchmark
 # ============
 OPTION(BUILD_BENCHMARK "${PROJECT_NAME} test suite" ON)

@@ -44,7 +44,6 @@ add_custom_command(TARGET ${PY_MOD_LIB_NAME} POST_BUILD
 
 add_custom_target(python-test COMMAND ${PYTHON_EXECUTABLE}  -m pytest "${CMAKE_SOURCE_DIR}/python/tests"  WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/python/module" )
 add_dependencies(python-test ${PY_MOD_LIB_NAME} )
-add_dependencies(test python-test)
 
 
 install(TARGETS ${PY_MOD_LIB_NAME} 

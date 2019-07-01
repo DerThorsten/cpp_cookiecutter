@@ -50,4 +50,3 @@ target_include_directories(  ${${PROJECT_NAME}_TEST_TARGET} PRIVATE
 
 add_custom_target(cpp-test COMMAND ${${PROJECT_NAME}_TEST_TARGET}  WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/test" )
 add_dependencies(cpp-test ${${PROJECT_NAME}_TEST_TARGET} )
-add_dependencies(test cpp-test)
