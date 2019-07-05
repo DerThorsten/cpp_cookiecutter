@@ -107,8 +107,6 @@ jobs:
       displayName: create dev requirements env
 
     - script: |
-        echo "cd path"
-        cd ..\{{cookiecutter.package_name}}
         echo "activate"
         call activate {{cookiecutter.package_name}}-dev-requirements
         echo "mkdir"
@@ -121,7 +119,7 @@ jobs:
       displayName: configure project
     - script: |
         echo "cd path"
-        cd ..\{{cookiecutter.package_name}}\build
+        cd build
         echo "activate"
         call activate {{cookiecutter.package_name}}-dev-requirements
         cmake --build . --target ALL_BUILD
@@ -129,7 +127,7 @@ jobs:
       displayName: build project
     - script: |
         echo "cd path"
-        cd ..\{{cookiecutter.package_name}}\build 
+        cd build
         echo "activate"
         call activate {{cookiecutter.package_name}}-dev-requirements
         echo "run tests"
