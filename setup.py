@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
     name='cpp_cookiecutter',
     packages=[],
-    version='0.2.0',
+    version='0.3.0',
     description='Cookiecutter template for a C++ package',
     author='Thorsten Beier',
     license='BSD 3-Clause License',
