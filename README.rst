@@ -28,15 +28,19 @@ Features
 --------
 
 Current features include: 
+
     * modern C++ 14
     * build system with modernized yet not modern CMake  (this is a major todo)
     * conda recipe included
-    * travis included
-    * unit tests with cpp doctest
+    * generated projects have pre-configured CI scripts for: travis-ci circleci and azure-pipelines
+    * generating of projects itself is tested on several continuous integration plattforms as travis-ci circleci and azure-pipelines
+    * cpp unit tests with cpp doctest
     * benchmark code with google benchmark
     * docs with sphinx breathe and readthedocs support
     * google benchmark and cpp doctest are downloaded at cmake-config time via external-projects 
       since these dependencies are just for testing and benchmarking
+    * bumpversion
+    * python bindings are created via pybind11
 
 
 

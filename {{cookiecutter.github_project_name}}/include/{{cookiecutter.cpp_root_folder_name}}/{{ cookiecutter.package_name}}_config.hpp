@@ -4,9 +4,11 @@
 
 
 
-#define {{cookiecutter.cpp_macro_prefix}}_VERSION_MAJOR 0
-#define {{cookiecutter.cpp_macro_prefix}}_VERSION_MINOR 1
-#define {{cookiecutter.cpp_macro_prefix}}_VERSION_PATCH 0
+
+#include "{{cookiecutter.cpp_root_folder_name}}/{{cookiecutter.package_name}}_version_major.hpp"
+#include "{{cookiecutter.cpp_root_folder_name}}/{{cookiecutter.package_name}}_version_minor.hpp"
+#include "{{cookiecutter.cpp_root_folder_name}}/{{cookiecutter.package_name}}_version_patch.hpp"
+
 
 namespace {{ cookiecutter.cpp_namespace }} {
 
