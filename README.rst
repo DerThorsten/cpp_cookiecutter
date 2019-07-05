@@ -98,7 +98,6 @@ On a windows machine this looks like:
 .. code-block:: shell
 
     cd cpptools
-    echo "activate"
     call activate cpptools-dev-requirements
     mkdir build
     cd build
