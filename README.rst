@@ -31,7 +31,7 @@ Current features include:
 
     * modern C++ 14
     * build system with modernized yet not modern CMake  (this is a major todo)
-    * conda recipe included
+    *  preconfigured conda conda recipe included 
     * generated projects have pre-configured CI scripts for: travis-ci circleci and azure-pipelines
     * generating of projects itself is tested on several continuous integration plattforms as travis-ci circleci and azure-pipelines
     * cpp unit tests with cpp doctest
@@ -41,6 +41,7 @@ Current features include:
       since these dependencies are just for testing and benchmarking
     * bumpversion
     * python bindings are created via pybind11
+   
 
 
 
@@ -48,8 +49,7 @@ Todos:
 --------
 
 Things which need to be done
-    * conda recipes are not well integrated yet
-    * Add documentation how to use the cookiecutter
+    * Add better documentation how to use the cookiecutter
 
 
 
@@ -71,5 +71,49 @@ After installing cookiecutter, use the cpp-cookiecutter:
     $ cookiecutter https://github.com/DerThorsten/cpp_cookiecutter
 
 
+This cookiecutter is bet used in conjunction with conda:
+Assuming your package is named cpptools the following script
+shows the usage of the generated project cookiecutter on Linux/MacOS
+
+.. code-block:: shell
+
+    cd cpptools
+    conda env create -f cpptools-dev-requirements.yml || exit 1
+    source activate cpptools-dev-requirements || exit 1
+    mkdir build
+    cd build
+    cmake ..
+    make -j2
+    make cpp-test
+    make python-test
+    cd examples
+    ./hello_world
+    cd ..
+    cd benchmark
+    ./benchmark_{{cookiecutter.cmake_project_name}}
+
+
+On a windows machine this looks like:
+
+.. code-block:: shell
+
+        echo "cd path"
+        cd ..\cpptools
+        echo "activate"
+        call activate cpptools-dev-requirements
+        echo "mkdir"
+        mkdir build
+        cd build
+        echo "cmake gen"
+        cmake .. -G"Visual Studio 15 2017 Win64" -DCMAKE_BUILD_TYPE=Release  ^
+              -DDEPENDENCY_SEARCH_PREFIX="%CONDA_PREFIX%\Library" -DCMAKE_PREFIX_PATH="%CONDA_PREFIX%\Library"
+        call activate cpptools-dev-requirements
+        cmake --build . --target ALL_BUILD
+        cmake --build . --target python-test
+        cmake --build . --target cpp-test
+
+
+
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
+
