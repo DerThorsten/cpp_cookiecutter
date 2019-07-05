@@ -111,6 +111,7 @@ jobs:
         call activate myroot
         conda install --yes --quiet --name myroot cookiecutter -c conda-forge
       displayName: Install Anaconda packages
+      
     - script: |
         echo "activate"
         call activate myroot
@@ -118,7 +119,6 @@ jobs:
         cd ..
         echo "run cookiecutter"
         cookiecutter %repoDir% --overwrite-if-exists --no-input
-
       displayName: generating project from cookiecutter
 
     - script: |
@@ -143,20 +143,16 @@ jobs:
         echo "cmake gen"
         cmake .. -G"Visual Studio 15 2017 Win64" -DCMAKE_BUILD_TYPE=Release  ^
               -DDEPENDENCY_SEARCH_PREFIX="%CONDA_PREFIX%\Library" -DCMAKE_PREFIX_PATH="%CONDA_PREFIX%\Library"
-        echo "build"
-        cmake --build . --target ALL_BUILD
-        cmake --build . --target python-test
-        cmake --build . --target cpp-test
-
       displayName: configure project
+
     - script: |
         echo "cd path"
         cd ..\cpptools\build
         echo "activate"
         call activate cpptools-dev-requirements
         cmake --build . --target ALL_BUILD
-
       displayName: build project
+
     - script: |
         echo "cd path"
         cd ..\cpptools\build 
@@ -165,7 +161,6 @@ jobs:
         echo "run tests"
         cmake --build . --target python-test
         cmake --build . --target cpp-test
-
       displayName: run tests
 
 
