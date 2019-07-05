@@ -78,8 +78,8 @@ shows the usage of the generated project cookiecutter on Linux/MacOS
 .. code-block:: shell
 
     cd cpptools
-    conda env create -f cpptools-dev-requirements.yml || exit 1
-    source activate cpptools-dev-requirements || exit 1
+    conda env create -f cpptools-dev-requirements.yml
+    source activate cpptools-dev-requirements
     mkdir build
     cd build
     cmake ..
@@ -90,7 +90,7 @@ shows the usage of the generated project cookiecutter on Linux/MacOS
     ./hello_world
     cd ..
     cd benchmark
-    ./benchmark_{{cookiecutter.cmake_project_name}}
+    ./benchmark_cpptools
 
 
 On a windows machine this looks like:
@@ -108,8 +108,33 @@ On a windows machine this looks like:
     cmake --build . --target python-test
     cmake --build . --target cpp-test
 
+.. code-block:: shell
+
+    cd cpptools
+    call activate cpptools-dev-requirements
+    mkdir build
+    cd build
+    cmake .. -G"Visual Studio 15 2017 Win64" -DCMAKE_BUILD_TYPE=Release  ^
+          -DDEPENDENCY_SEARCH_PREFIX="%CONDA_PREFIX%\Library" -DCMAKE_PREFIX_PATH="%CONDA_PREFIX%\Library"
+    call activate cpptools-dev-requirements
+    cmake --build . --target ALL_BUILD
+    cmake --build . --target python-test
+    cmake --build . --target cpp-test
 
 
+
+
+
+Conda Recipe:
+--------
+
+The generated projects contain a conda recipe which can be used to build conda packages.
+    
+.. code-block:: shell
+
+    cd cpptools
+    conda install conda-build
+    conda build recipe
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
-
+    
