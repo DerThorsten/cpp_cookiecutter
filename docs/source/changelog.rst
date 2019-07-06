@@ -3,7 +3,7 @@
 Changelog
 =========
 
-0.1.0
+0.4.0
 ------
 
-- inital version
+- added ci pipeline scripts in rendered projects
