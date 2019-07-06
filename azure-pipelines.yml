@@ -87,7 +87,7 @@ jobs:
 
 
   - job:
-    displayName: vs2017-win2016
+    displayName: Windows
     pool:
       vmImage: 'vs2017-win2016'
     strategy:
