@@ -12,4 +12,4 @@ Changelog
 0.5.0
 ------
 
-- added readthedocs documentation
+- added  documentation on readthedocs.org
