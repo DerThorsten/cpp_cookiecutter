@@ -60,21 +60,6 @@ On a windows machine this looks like:
     cmake --build . --target python-test
     cmake --build . --target cpp-test
 
-.. code-block:: shell
-
-    cd cpptools
-    call activate cpptools-dev-requirements
-    mkdir build
-    cd build
-    cmake .. -G"Visual Studio 15 2017 Win64" -DCMAKE_BUILD_TYPE=Release  ^
-          -DDEPENDENCY_SEARCH_PREFIX="%CONDA_PREFIX%\Library" -DCMAKE_PREFIX_PATH="%CONDA_PREFIX%\Library"
-    call activate cpptools-dev-requirements
-    cmake --build . --target ALL_BUILD
-    cmake --build . --target python-test
-    cmake --build . --target cpp-test
-
-
-
 Install dev requirements
 =========================
 
