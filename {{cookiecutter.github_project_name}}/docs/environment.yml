@@ -1,10 +1,9 @@
 name: {{cookiecutter.package_name}}-docs
 
 channels:
+  - anaconda
   - conda-forge
-
 dependencies:
-  - cmake
-  - xtensor
-  - xtensor-python
-  - breathe
+  - cookiecutter
+  - sphinx
+  - sphinx_rtd_theme
