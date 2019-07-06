@@ -1,0 +1,9 @@
+name: cpp_cookiecutter-dev-requirements
+
+channels:
+  - anaconda
+  - conda-forge
+dependencies:
+  - cookiecutter
+  - sphinx
+  - sphinx_rtd_theme
