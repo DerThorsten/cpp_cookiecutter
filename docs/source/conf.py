@@ -31,7 +31,7 @@ extensions = []
 templates_path = ['_template']
 source_suffix = '.rst'
 master_doc = 'index'
-project = 'cpp_cookiebutter'
+project = 'cpp_cookiecutter'
 copyright = '2019 , Thorsten Beier'
 author = 'Thorsten Beier'
 
