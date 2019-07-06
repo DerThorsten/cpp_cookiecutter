@@ -13,10 +13,11 @@ This software is licensed under the BSD 3-Clause License. See the LICENSE.txt fi
    :maxdepth: 2
 
    basic_usage
-   
+
 .. toctree::
    :caption: Changelog
    :maxdepth: 2
+   
    changelog
 
 
