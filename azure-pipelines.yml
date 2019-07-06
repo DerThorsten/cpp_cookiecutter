@@ -1,7 +1,3 @@
-# Pipelines are made of one or more jobs and may include resources and variables.
-# Jobs are made of one or more steps plus some job-specific data. Steps can be
-# tasks, scripts, or references to external templates.
-
 jobs:
   - job: Linux
     pool:
@@ -17,11 +13,6 @@ jobs:
       repoDir: '$(Build.Repository.LocalPath)'
 
     steps:
-        # NOTE: On Linux, there is no write permission in the miniconda installation,
-        # and the CondaEnvironment@1 does not honor a prefix. Therefore we can *not*
-        # use the conda that comes with Azure as we do on Windows. This is also
-        # documented in the following issue: https://github.com/Microsoft/vsts-tasks/issues/8299
-        # Therefore we need to create our own conda environment from scratch.
       - task: CondaEnvironment@1
         inputs:
           updateConda: false
