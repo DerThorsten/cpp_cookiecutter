@@ -1,3 +1,9 @@
 name: cpp_cookiecutter-docs
 
-
+channels:
+  - anaconda
+  - conda-forge
+dependencies:
+  - cookiecutter
+  - sphinx
+  - sphinx_rtd_theme
