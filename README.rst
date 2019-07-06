@@ -3,6 +3,11 @@ Cpp Cookiecutter
 =================================================
 
 
+.. image:: https://readthedocs.org/projects/cpp-cookiecutter/badge/?version=latest
+    :target: https://cpp-cookiecutter.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+      
+
 .. image:: https://travis-ci.org/DerThorsten/cpp_cookiecutter.svg?branch=master
     :target: https://travis-ci.org/DerThorsten/cpp_cookiecutter
 
