@@ -11,6 +11,7 @@ echo "activate cpp_cookiecutter-dev-requirements conda env"
 $SOURCE activate cpp_cookiecutter-dev-requirements || exit 1
 
 echo "render coookiecutter template"
+cd .. || exit 1
 cookiecutter $TEMPLATE_FOLDER --overwrite-if-exists --no-input || exit 1
 
 echo "go into cpp tools"
