@@ -1,4 +1,50 @@
 jobs:
+  - job: LinuxNew
+    pool:
+      vmImage: 'ubuntu-16.04'
+    strategy:
+      maxParallel: 2
+      # matrix:
+      #   py36:
+      #     PY_VERSION: 3.6
+      #   py37:
+      #     PY_VERSION: 3.7
+    variables:
+      repoDir: '$(Build.Repository.LocalPath)'
+
+    steps:
+        # NOTE: On Linux, there is no write permission in the miniconda installation,
+        # and the CondaEnvironment@1 does not honor a prefix. Therefore we can *not*
+        # use the conda that comes with Azure as we do on Windows. This is also
+        # documented in the following issue: https://github.com/Microsoft/vsts-tasks/issues/8299
+        # Therefore we need to create our own conda environment from scratch.
+      - task: CondaEnvironment@1
+        inputs:
+          updateConda: false
+      - script: |
+          sh tests/test_project.sh
+
+  - job: macOSNew
+    pool:
+      vmImage: 'xcode9-macos10.13'
+    strategy:
+      maxParallel: 2
+      # matrix:
+      #   py36:
+      #     PY_VERSION: 3.6
+      #   py37:
+      #     PY_VERSION: 3.7
+    variables:
+      repoDir: '$(Build.Repository.LocalPath)'
+    steps:
+      - bash: echo "##vso[task.prependpath]$CONDA/bin"
+        displayName: Add conda to PATH
+
+      - script: |
+          sh tests/test_project.sh
+
+
+jobs:
   - job: Linux
     pool:
       vmImage: 'ubuntu-16.04'
