@@ -58,6 +58,7 @@ variables:
     run:
       name: Run test scripts
       command: |
+        conda init bash
         sh tests/test_project.sh repo
 
 
