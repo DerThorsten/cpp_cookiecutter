@@ -22,7 +22,8 @@ jobs:
         inputs:
           updateConda: false
       - script: |
-          sh tests/test_project.sh $(repoDir) source
+          chmod +x tests/test_project.sh 
+          ./tests/test_project.sh $(repoDir) source
 
   - job: macOSNew
     pool:
@@ -41,7 +42,8 @@ jobs:
         displayName: Add conda to PATH
 
       - script: |
-          sh tests/test_project.sh $(repoDir) source
+          chmod +x tests/test_project.sh 
+          ./tests/test_project.sh $(repoDir) source
 
 
   - job: Linux
