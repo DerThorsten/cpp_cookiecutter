@@ -46,6 +46,12 @@ variables:
         cd cpptools
         conda build recipe -c conda-forge
 
+  run_test_script: &run_test_script
+    run:
+      name: Run test scripts
+      command: |
+        sh tests/script.sh repo
+
 
 jobs:
   test_job:
@@ -77,7 +83,7 @@ jobs:
       - checkout
       - *install_build_essential
       - *prepare_conda
-      - sh tests/script.sh repo
+      - *run_test_script
 
 workflows:
   version: 2
