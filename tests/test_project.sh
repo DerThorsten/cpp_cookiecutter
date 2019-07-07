@@ -8,10 +8,10 @@ echo "create cpp_cookiecutter-dev-requirements conda env"
 conda env create -f cpp_cookiecutter-dev-requirements.yml || exit 1
 
 echo "activate cpp_cookiecutter-dev-requirements conda env"
-SOURCE activate cpp_cookiecutter-dev-requirements || exit 1
+$SOURCE activate cpp_cookiecutter-dev-requirements || exit 1
 
 echo "render coookiecutter template"
-cookiecutter TEMPLATE_FOLDER --overwrite-if-exists --no-input || exit 1
+cookiecutter $TEMPLATE_FOLDER --overwrite-if-exists --no-input || exit 1
 
 echo "go into cpp tools"
 cd cpptools || exit 1
@@ -20,7 +20,7 @@ echo "create cpptools-dev-requirements conda env"
 conda env create -f cpptools-dev-requirements.yml || exit 1
 
 echo "activate cpptools-dev-requirements conda env"
-SOURCE activate cpptools-dev-requirements || exit 1
+$SOURCE activate cpptools-dev-requirements || exit 1
 
 echo "create build dir"
 mkdir build || exit 1
