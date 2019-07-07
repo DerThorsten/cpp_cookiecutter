@@ -3,10 +3,10 @@
 
 TEMPLATE_FOLDER=$0
 
-echo "create cpp_cookiecuytter-dev-requirements conda env"
+echo "create cpp_cookiecutter-dev-requirements conda env"
 conda env create -f cpp_cookiecutter-dev-requirements.yml || exit 1
 
-echo "activate cpp_cookiecuytter-dev-requirements conda env"
+echo "activate cpp_cookiecutter-dev-requirements conda env"
 conda activate cpp_cookiecutter-dev-requirements || exit 1
 
 echo "render coookiecutter template"
