@@ -33,16 +33,15 @@ Features
 --------
 
 Current features include: 
-
-    * modern C++ 14
-    * build system with modernized yet not modern CMake  (this is a major todo)
+    * Modern C++ 14
+    * Build system with modernized yet not modern CMake  (this is a major todo)
     * `preconfigured conda recipe included <https://cpp-cookiecutter.readthedocs.io/en/latest/conda_recipe.html>`_
     * Rendered projects have pre-configured CI scripts for: travis-ci circleci and azure-pipelines
     * Rendering of projects itself is tested on several continuous integration plattforms as `travis-ci <https://travis-ci.org/DerThorsten/cpp_cookiecutter>`_ `circleci <https://circleci.com/gh/DerThorsten/cpp_cookiecutter/tree/master>`_ and `azure-pipelines <https://dev.azure.com/derthorstenbeier/cpp_cookiecutter/_build/latest?definitionId=1&branchName=master>`_
     * `C++ unit tests with cpp doctest <https://cpp-cookiecutter.readthedocs.io/en/latest/unit_tests.html>`_
     * `Benchmark code with google benchmark <https://cpp-cookiecutter.readthedocs.io/en/latest/benchmark.html>`_
     * Docs with sphinx breathe and readthedocs support
-    * google benchmark and cpp doctest are downloaded at cmake-config time via external-projects 
+    * `Google Benchmark <https://cpp-cookiecutter.readthedocs.io/en/latest/benchmark.html>`_and `Doctest <https://cpp-cookiecutter.readthedocs.io/en/latest/unit_tests.html>`_ are downloaded at cmake-config time via external-projects 
       since these dependencies are just for testing and benchmarking (and those are not yet available on conda)
     * bumpversion
     * `Python bindings are created via pybind11`<https://cpp-cookiecutter.readthedocs.io/en/latest/python.html>_
