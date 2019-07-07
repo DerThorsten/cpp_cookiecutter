@@ -69,6 +69,16 @@ jobs:
       - *run_test_conda_build
 
 
+  test_ci_test_script:
+    docker:
+     - image: continuumio/miniconda3:4.5.12
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - *install_build_essential
+      - *prepare_conda
+      - sh tests/script.sh repo
+
 workflows:
   version: 2
 
