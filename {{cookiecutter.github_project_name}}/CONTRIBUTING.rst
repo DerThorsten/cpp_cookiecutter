@@ -65,6 +65,3 @@ Before you submit a pull request, check that it meets these guidelines:
 2. If the pull request adds functionality, the docs should be updated. Put
    your new functionality into a function / classes with a proper documentation, and add the
    feature to the list in README.rst.
-3. Python related pull request should work for Python  3.6 and 3.7. Check
-   https://travis-ci.org/{{cookiecutter.github_user_name}}/{{cookiecutter.github_project_name}}/pull_requests
-   and make sure that the tests pass for all supported Python versions.
