@@ -17,6 +17,12 @@ This software is licensed under the BSD 3-Clause License. See the LICENSE.txt fi
    basic_usage
 
 .. toctree::
+   :caption: Folder Structure
+   :maxdepth: 2
+
+   folder_structure
+
+.. toctree::
    :caption: Unit Test
    :maxdepth: 2
 
