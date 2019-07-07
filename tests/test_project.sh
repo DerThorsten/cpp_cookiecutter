@@ -4,6 +4,8 @@
 TEMPLATE_FOLDER=$0
 SOURCE=$1
 
+echo $TEMPLATE_FOLDER
+echo $SOURCE=
 
 echo "create cpp_cookiecutter-dev-requirements conda env"
 conda env create -f cpp_cookiecutter-dev-requirements.yml || exit 1
