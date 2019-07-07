@@ -2,7 +2,7 @@ Benchmark
 =========
 
 
-We use gbech_ to create a benchmark for the C++ code.
+We use gbench_ to create a benchmark for the C++ code.
 
 
 The benchmark subfolder contains all the code related 
