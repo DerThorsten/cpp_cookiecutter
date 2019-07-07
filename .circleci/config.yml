@@ -50,7 +50,7 @@ variables:
     run:
       name: Run test scripts
       command: |
-        sh tests/script.sh repo
+        sh tests/test_orohect.sh repo
 
 
 jobs:
