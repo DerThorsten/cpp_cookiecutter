@@ -46,11 +46,17 @@ variables:
         cd cpptools
         conda build recipe -c conda-forge
 
+  update_conda: &update_conda
+    run:
+      name: update conda
+      command: |
+        conda update -q conda 
+
+
   run_test_script: &run_test_script
     run:
       name: Run test scripts
       command: |
-        conda update -q conda 
         sh tests/test_project.sh repo
 
 
@@ -83,6 +89,7 @@ jobs:
     steps:
       - checkout
       - *install_build_essential
+      - *update_conda
       - *run_test_script
 
 workflows:
