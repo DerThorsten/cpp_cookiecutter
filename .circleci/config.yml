@@ -4,7 +4,8 @@ variables:
 
   install_build_essential: &install_build_essential
     run:
-      name: Install Build Essentials      command: |
+      name: Install Build essential
+      command: |
         apt-get update
         apt-get install -y build-essential
 
@@ -49,7 +50,7 @@ variables:
     run:
       name: Run test scripts
       command: |
-        conda update -q conda
+        conda update -q conda 
         sh tests/test_project.sh repo
 
 
