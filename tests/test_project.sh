@@ -10,8 +10,11 @@ conda env create -f cpp_cookiecutter-dev-requirements.yml || exit 1
 echo "activate cpp_cookiecutter-dev-requirements conda env"
 $SOURCE activate cpp_cookiecutter-dev-requirements || exit 1
 
-echo "render coookiecutter template"
+echo "take one step back"
 cd .. || exit 1
+ls || exit 1
+
+echo "render coookiecutter template"
 cookiecutter $TEMPLATE_FOLDER --overwrite-if-exists --no-input || exit 1
 
 echo "go into cpp tools"
