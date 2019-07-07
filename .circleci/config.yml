@@ -82,7 +82,6 @@ jobs:
     steps:
       - checkout
       - *install_build_essential
-      - *prepare_conda
       - *run_test_script
 
 workflows:
