@@ -36,17 +36,21 @@ Current features include:
 
     * modern C++ 14
     * build system with modernized yet not modern CMake  (this is a major todo)
-    *  preconfigured conda conda recipe included 
+    * preconfigured conda recipe included 
     * generated projects have pre-configured CI scripts for: travis-ci circleci and azure-pipelines
     * generating of projects itself is tested on several continuous integration plattforms as travis-ci circleci and azure-pipelines
-    * cpp unit tests with cpp doctest
+    * `C++ unit tests with cpp doctest <https://cpp-cookiecutter.readthedocs.io/en/latest/unit_tests.html>`_.
     * benchmark code with google benchmark
     * docs with sphinx breathe and readthedocs support
     * google benchmark and cpp doctest are downloaded at cmake-config time via external-projects 
-      since these dependencies are just for testing and benchmarking
+      since these dependencies are just for testing and benchmarking (and those are not yet available on conda)
     * bumpversion
     * python bindings are created via pybind11
    
+
+.. _rtd_unit_test:
+
+
 
 
 
