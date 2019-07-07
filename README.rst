@@ -33,6 +33,7 @@ Features
 --------
 
 Current features include: 
+    * Readme on `readthedocs.org <https://cpp-cookiecutter.readthedocs.io/en/latest/>`_
     * Modern C++ 14
     * Build system with modernized yet not modern CMake  (this is a major todo)
     * `preconfigured conda recipe included <https://cpp-cookiecutter.readthedocs.io/en/latest/conda_recipe.html>`_
