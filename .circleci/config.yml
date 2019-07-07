@@ -51,6 +51,7 @@ variables:
       name: update conda
       command: |
         conda update -q conda 
+        conda init bash
 
 
   run_test_script: &run_test_script
