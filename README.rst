@@ -42,10 +42,10 @@ Current features include:
     * `C++ unit tests with cpp doctest <https://cpp-cookiecutter.readthedocs.io/en/latest/unit_tests.html>`_
     * `Benchmark code with google benchmark <https://cpp-cookiecutter.readthedocs.io/en/latest/benchmark.html>`_
     * Docs with sphinx breathe and readthedocs support
-    * `Google Benchmark <https://cpp-cookiecutter.readthedocs.io/en/latest/benchmark.html>`_and `Doctest <https://cpp-cookiecutter.readthedocs.io/en/latest/unit_tests.html>`_ are downloaded at cmake-config time via external-projects 
+    * `Google Benchmark <https://cpp-cookiecutter.readthedocs.io/en/latest/benchmark.html>`_ and `Doctest <https://cpp-cookiecutter.readthedocs.io/en/latest/unit_tests.html>`_ are downloaded at cmake-config time via external-projects 
       since these dependencies are just for testing and benchmarking (and those are not yet available on conda)
     * bumpversion
-    * `Python bindings are created via pybind11`<https://cpp-cookiecutter.readthedocs.io/en/latest/python.html>_
+    * `Python bindings are created via pybind11 <https://cpp-cookiecutter.readthedocs.io/en/latest/python.html>`_
    
 
 .. _rtd_unit_test:
