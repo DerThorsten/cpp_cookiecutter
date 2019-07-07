@@ -19,7 +19,7 @@ echo "create cpptools-dev-requirements conda env"
 conda env create -f cpptools-dev-requirements.yml || exit 1
 
 echo "activate cpptools-dev-requirements conda env"
-source activate cpptools-dev-requirements || exit 1
+conda activate cpptools-dev-requirements || exit 1
 
 echo "create build dir"
 mkdir build || exit 1
