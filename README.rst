@@ -39,8 +39,8 @@ Current features include:
     * preconfigured conda recipe included 
     * generated projects have pre-configured CI scripts for: travis-ci circleci and azure-pipelines
     * generating of projects itself is tested on several continuous integration plattforms as travis-ci circleci and azure-pipelines
-    * `C++ unit tests with cpp doctest <https://cpp-cookiecutter.readthedocs.io/en/latest/unit_tests.html>`_.
-    * benchmark code with google benchmark
+    * `C++ unit tests with cpp doctest <https://cpp-cookiecutter.readthedocs.io/en/latest/unit_tests.html>`_
+    * `Benchmark code with google benchmark <https://cpp-cookiecutter.readthedocs.io/en/latest/benchmark.html>`_
     * docs with sphinx breathe and readthedocs support
     * google benchmark and cpp doctest are downloaded at cmake-config time via external-projects 
       since these dependencies are just for testing and benchmarking (and those are not yet available on conda)
