@@ -59,7 +59,8 @@ variables:
       name: Run test scripts
       command: |
         conda init bash
-        sh tests/test_project.sh repo source
+        chmod +x tests/test_project.sh 
+        ./tests/test_project.sh repo source
 
 
 jobs:
