@@ -1,7 +1,8 @@
 Basic usage
 ===========
 
-
+Install cookiecutter
+**********************
 Install _cookiecutter via conda (recommended)
 
 .. code-block:: shell
@@ -14,7 +15,8 @@ or
 
     $ pip install cookiecutter
 
-
+Create Project With Cookiecutter
+********************************************
 
 After installing cookiecutter, use the cpp-cookiecutter:
 
@@ -22,7 +24,8 @@ After installing cookiecutter, use the cpp-cookiecutter:
 
     $ cookiecutter https://github.com/DerThorsten/cpp_cookiecutter
 
-
+There you need to specify the variables of the cpp_cookiecutter which are explained
+in the table below:
 
 .. list-table:: Title
    :widths: 25 25 50
@@ -96,6 +99,8 @@ After installing cookiecutter, use the cpp-cookiecutter:
      - cpptools is a modern C++ Library   
 
 
+Build Generated Project
+********************************************
 
 This cookiecutter is bet used in conjunction with conda:
 Assuming your package is named cpptools the following script
@@ -124,6 +129,7 @@ On a windows machine this looks like:
 .. code-block:: shell
 
     cd cpptools
+    conda env create -f cpptools-dev-requirements.yml
     call activate cpptools-dev-requirements
     mkdir build
     cd build

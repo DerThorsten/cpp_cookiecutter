@@ -8,6 +8,8 @@ dependencies:
   - cmake >=3.1
   - sphinx 
   - breathe
+  - doxygen
+  - sphinx_rtd_theme
   - pytest
   - xtl
   - xtensor
