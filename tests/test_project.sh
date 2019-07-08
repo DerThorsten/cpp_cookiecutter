@@ -1,54 +1,61 @@
 #!/bin/bash
 
 
-TEMPLATE_FOLDER=$0
+TEMPLATE_FOLDER=$1
+SOURCE=$2
 
-echo "create cpp_cookiecuytter-dev-requirements conda env"
-conda env create -f cpp_cookiecutter-dev-requirements.sh
+echo $TEMPLATE_FOLDER
+echo $SOURCE
 
-echo "activate cpp_cookiecuytter-dev-requirements conda env"
-conda activate cpp_cookiecutter-dev-requirements
+echo "create cpp_cookiecutter-dev-requirements conda env"
+conda env create -f cpp_cookiecutter-dev-requirements.yml || exit 1
+
+echo "activate cpp_cookiecutter-dev-requirements conda env"
+$SOURCE activate cpp_cookiecutter-dev-requirements || exit 1
+
+echo "take one step back"
+cd .. || exit 1
 
 echo "render coookiecutter template"
-cookiecutter TEMPLATE_FOLDER --overwrite-if-exists --no-input
+cookiecutter $TEMPLATE_FOLDER --overwrite-if-exists --no-input || exit 1
 
 echo "go into cpp tools"
-cd cpptools
+cd cpptools || exit 1
 
 echo "create cpptools-dev-requirements conda env"
-conda env create -f cpptools-dev-requirements.yml
+conda env create -f cpptools-dev-requirements.yml || exit 1
 
 echo "activate cpptools-dev-requirements conda env"
-source activate cpptools-dev-requirements
+$SOURCE activate cpptools-dev-requirements || exit 1
 
 echo "create build dir"
-mkdir build
+mkdir build || exit 1
 
 echo "go into build dir"
-cd build
+cd build || exit 1
 
 echo "run cmake"
-cmake ..
+cmake .. || exit 1
 
 echo "build project"
-make -j2
+make -j2 || exit 1
 
 echo "run cpp tests"
-make cpp-test
+make cpp-test || exit 1
 
 echo "run python tests"
-make python-test
+make python-test || exit 1
 
 
 echo "run example"
-cd examples
-./hello_world
-cd ..
+cd examples || exit 1
+./hello_world || exit 1
+cd .. || exit 1
 
 echo "run benchmark"
-cd benchmark
-./benchmark_cpptools
-cd ..
+cd benchmark || exit 1
+./benchmark_cpptools || exit 1
+cd .. || exit 1
 
 
 echo "Completed test script successfully"
