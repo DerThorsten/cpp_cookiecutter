@@ -1,16 +1,3 @@
-.. raw:: html
-
-   <style>
-   .rst-content .section>img {
-       width: 30px;
-       margin-bottom: 0;
-       margin-top: 0;
-       margin-right: 15px;
-       margin-left: 15px;
-       float: left;
-   }
-   </style>
-
 Installation
 ============
 
@@ -20,29 +7,41 @@ Besides the {{cookiecutter.project_name}} headers, all these methods place the `
 
 
 
-From source with cmake
-----------------------
 
-You can also install ``{{cookiecutter.project_name}}`` from source with cmake. 
-On Unix platforms, from the source directory:
+.. code-block:: shell
 
-.. code::
-
+    cd {{cookiecutter.github_project_name}
+    conda env create -f {{cookiecutter.project_name}}-dev-requirements.yml
+    source activate {{cookiecutter.project_name}}-dev-requirements
     mkdir build
     cd build
-    cmake -DCMAKE_INSTALL_PREFIX=/path/to/prefix ..
+    cmake ..
+    make -j2
+    make cpp-test
+    make python-test
     make install
+    cd examples
+    ./hello_world
+    cd ..
+    cd benchmark
+    ./benchmark_cpptools
 
-On Windows platforms, from the source directory:
 
-.. code::
+On a windows machine this looks like:
 
+.. code-block:: shell
+
+    cd {{cookiecutter.github_project_name}
+    conda env create -f {{cookiecutter.project_name}}-dev-requirements.yml
+    call activate {{cookiecutter.project_name}}-dev-requirements
     mkdir build
     cd build
-    cmake -G "NMake Makefiles" -DCMAKE_INSTALL_PREFIX=/path/to/prefix ..
-    nmake
-    nmake install
-
-See the section of the documentation on :doc:`build-options`, for more details on how to cmake options.
+    cmake .. -G"Visual Studio 15 2017 Win64" -DCMAKE_BUILD_TYPE=Release  ^
+          -DDEPENDENCY_SEARCH_PREFIX="%CONDA_PREFIX%\Library" -DCMAKE_PREFIX_PATH="%CONDA_PREFIX%\Library"
+    call activate cpptools-dev-requirements
+    cmake --build . --target ALL_BUILD
+    cmake --build . --target python-test
+    cmake --build . --target cpp-test
+    cmake --build . --target install
 
 

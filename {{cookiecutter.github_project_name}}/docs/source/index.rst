@@ -3,11 +3,6 @@ Introduction
 
 {{cookiecutter.description}}
 
-`cookiecutter.project_name` provides:
-
-
-- an API following the idioms of the **C++ standard library**.
-
 
 {% if cookiecutter.open_source_license != 'Not open source' -%}
 Licensing
@@ -41,20 +36,6 @@ This software is licensed under the {{cookiecutter.open_source_license}} license
    
    api/{{cookiecutter.project_name}}.rst
 
-.. toctree::
-   :caption: DEVELOPER ZONE
-   :maxdepth: 2
-
-   compilers
-   build-options
-   developer/xtensor_internals
-   external-structures
-   releasing
-
-.. toctree::
-   :caption: MISCELLANEOUS
-
-   related
 
 
 .. _NumPy: http://www.numpy.org
