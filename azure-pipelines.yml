@@ -1,61 +1,9 @@
 jobs:
-  - job: LinuxNew
-    pool:
-      vmImage: 'ubuntu-16.04'
-    strategy:
-      maxParallel: 2
-      # matrix:
-      #   py36:
-      #     PY_VERSION: 3.6
-      #   py37:
-      #     PY_VERSION: 3.7
-    variables:
-      repoDir: '$(Build.Repository.LocalPath)'
-
-    steps:
-        # NOTE: On Linux, there is no write permission in the miniconda installation,
-        # and the CondaEnvironment@1 does not honor a prefix. Therefore we can *not*
-        # use the conda that comes with Azure as we do on Windows. This is also
-        # documented in the following issue: https://github.com/Microsoft/vsts-tasks/issues/8299
-        # Therefore we need to create our own conda environment from scratch.
-      - task: CondaEnvironment@1
-        inputs:
-          updateConda: false
-      - script: |
-          chmod +x tests/test_project.sh 
-          ./tests/test_project.sh $(repoDir) source
-
-  - job: macOSNew
-    pool:
-      vmImage: 'xcode9-macos10.13'
-    strategy:
-      maxParallel: 2
-      # matrix:
-      #   py36:
-      #     PY_VERSION: 3.6
-      #   py37:
-      #     PY_VERSION: 3.7
-    variables:
-      repoDir: '$(Build.Repository.LocalPath)'
-    steps:
-      - bash: echo "##vso[task.prependpath]$CONDA/bin"
-        displayName: Add conda to PATH
-
-      - script: |
-          chmod +x tests/test_project.sh 
-          ./tests/test_project.sh $(repoDir) source
-
-
   - job: Linux
     pool:
       vmImage: 'ubuntu-16.04'
     strategy:
       maxParallel: 2
-      # matrix:
-      #   py36:
-      #     PY_VERSION: 3.6
-      #   py37:
-      #     PY_VERSION: 3.7
     variables:
       repoDir: '$(Build.Repository.LocalPath)'
 
@@ -64,64 +12,23 @@ jobs:
         inputs:
           updateConda: false
       - script: |
-          conda config --set always_yes yes --set changeps1 no
-          conda update -q conda
-          conda install cookiecutter -c conda-forge 
-          conda install conda-build
-          cd ..
-          cookiecutter $(repoDir) --overwrite-if-exists --no-input
-          cd cpptools
-          conda env create -f cpptools-dev-requirements.yml
-          source activate cpptools-dev-requirements
-          mkdir build
-          cd build
-          cmake ..
-          make -j2
-          make python-test
-          echo "Completed script successfully"
-
+          chmod +x tests/test_project.sh 
+          ./tests/test_project.sh $(repoDir) source
 
   - job: macOS
     pool:
       vmImage: 'xcode9-macos10.13'
     strategy:
       maxParallel: 2
-      # matrix:
-      #   py36:
-      #     PY_VERSION: 3.6
-      #   py37:
-      #     PY_VERSION: 3.7
     variables:
       repoDir: '$(Build.Repository.LocalPath)'
     steps:
       - bash: echo "##vso[task.prependpath]$CONDA/bin"
         displayName: Add conda to PATH
-      - bash: conda create --yes --quiet --name myroot
-        displayName: Create Anaconda environment
-      - script: |
-          source activate myroot
-          conda config --set always_yes yes --set changeps1 no
-          echo "install cookiecutter"
-          conda install cookiecutter -c conda-forge 
-          echo "install conda-build"
-          conda install conda-build
-          cd ..
-          echo "run cookiecutter" 
-          cookiecutter $(repoDir)  --overwrite-if-exists --no-input
-          cd cpptools
-          echo "Activating conda environment"
-          conda env create -f cpptools-dev-requirements.yml
-          echo "source conda env"
-          source activate cpptools-dev-requirements
-          mkdir build
-          cd build
-          echo "cmake"
-          cmake ..
-          echo "make"
-          make -j2
-          make python-test
-          echo "Completed script successfully"
 
+      - script: |
+          chmod +x tests/test_project.sh 
+          ./tests/test_project.sh $(repoDir) source
 
 
   - job:
