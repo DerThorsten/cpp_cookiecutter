@@ -23,6 +23,80 @@ After installing cookiecutter, use the cpp-cookiecutter:
     $ cookiecutter https://github.com/DerThorsten/cpp_cookiecutter
 
 
+
+.. list-table:: Title
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - Cookiecutter variable
+     - Description
+     - Default
+   * - full_name
+     - Author Name
+     - John Doe
+   * - email                        
+     - email of author
+     - john@doe.de
+   * - project_name                 
+     - name of the project
+     - cpptools
+   * - project_slug                 
+     - url friendly version of package name
+     - cpptools
+   * - package_name                 
+     - package name
+     - cpptools
+   * - conda_package_name           
+     - conda package name
+     - cpptools
+   * - readthedocs_package_name     
+     - readthedocs package name
+     - cpptools
+   * - cpp_namespace                
+     - name of C++ namespace
+     - cpptools
+   * - cpp_root_folder_name         
+     - name of the root C++ folder 
+     - cpptools
+   * - cpp_macro_prefix             
+     - prefix for all macros in C++
+     - CPPTOOLS
+   * - cpp_standart                 
+     - which C++ standard should be used
+     - 14
+   * - cmake_project_name           
+     - name of the project within cmake
+     - cpptools
+   * - cmake_interface_library_name 
+     - name of the cmake interface library
+     - cpptools
+   * - github_project_name          
+     - name of the project on github
+     - cpptools
+   * - python_bindings              
+     - should python bindings be included
+     - Yes
+   * - python_package_name          
+     - name of the python package
+     - cpptools
+   * - github_user_name             
+     - authors github user name
+     - JohnDoe
+   * - azure_user_name              
+     - authors user name on microsoft azure
+     - JohnDoe
+   * - open_source_license          
+     - which license shall be used
+     - MIT LICENCE
+   * - summary                      
+     - a short summary of the project
+     - cpptools is a modern C++ Library
+   * - description                  
+     - a short description of the project
+     - cpptools is a modern C++ Library   
+
+
+
 This cookiecutter is bet used in conjunction with conda:
 Assuming your package is named cpptools the following script
 shows the usage of the generated project cookiecutter on Linux/MacOS
