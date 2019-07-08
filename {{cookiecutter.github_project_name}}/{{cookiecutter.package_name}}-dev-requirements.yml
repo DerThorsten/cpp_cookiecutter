@@ -9,6 +9,7 @@ dependencies:
   - sphinx 
   - breathe
   - doxygen
+  - sphinx_rtd_theme
   - pytest
   - xtl
   - xtensor
