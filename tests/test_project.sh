@@ -4,8 +4,11 @@
 TEMPLATE_FOLDER=$1
 SOURCE=$2
 
-echo $TEMPLATE_FOLDER
-echo $SOURCE
+echo "------------------------------------------------------------"
+echo "template folder dir: $TEMPLATE_FOLDER"
+echo "conda source command: $SOURCE activate"
+echo "------------------------------------------------------------"
+
 
 echo "------------------------------------------------------------"
 echo "create cpp_cookiecutter-dev-requirements conda env"
