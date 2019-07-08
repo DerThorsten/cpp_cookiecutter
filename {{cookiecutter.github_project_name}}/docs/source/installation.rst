@@ -10,7 +10,7 @@ Besides the {{cookiecutter.project_name}} headers, all these methods place the `
 
 .. code-block:: shell
 
-    cd {{cookiecutter.github_project_name}
+    cd {{cookiecutter.github_project_name}}
     conda env create -f {{cookiecutter.project_name}}-dev-requirements.yml
     source activate {{cookiecutter.project_name}}-dev-requirements
     mkdir build
@@ -31,7 +31,7 @@ On a windows machine this looks like:
 
 .. code-block:: shell
 
-    cd {{cookiecutter.github_project_name}
+    cd {{cookiecutter.github_project_name}}
     conda env create -f {{cookiecutter.project_name}}-dev-requirements.yml
     call activate {{cookiecutter.project_name}}-dev-requirements
     mkdir build
