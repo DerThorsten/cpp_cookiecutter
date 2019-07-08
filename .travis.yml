@@ -91,5 +91,5 @@ install:
     - conda update -q conda
 
 script:
-- chmod + x tests/test_project.sh
+- chmod +x tests/test_project.sh
 - ./tests/test_project.sh cpp_cookiecutter source

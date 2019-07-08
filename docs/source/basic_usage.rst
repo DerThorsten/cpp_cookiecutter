@@ -67,7 +67,7 @@ To install all dev requirements install the dependencies via the requirements ya
 
 .. code-block:: shell
 
-    $ conda env create -fg cpp_cookiecutter-dev-requiremnts.yml
+    $ conda env create -f cpp_cookiecutter-dev-requiremnts.yml
 
 This will create a fresh conda environments with all dependencies to use the cookiecutter and 
-to build the documentation of this project
+to build the documentation of this project.
