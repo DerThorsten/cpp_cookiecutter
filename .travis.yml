@@ -89,42 +89,7 @@ install:
     - hash -r
     - conda config --set always_yes yes --set changeps1 no
     - conda update -q conda
-    - conda install cookiecutter -c conda-forge 
-    - conda install conda-build
-    # Testing
-    - cd ..
-    - cookiecutter cpp_cookiecutter --overwrite-if-exists --no-input
-    - cd cpptools
-
-    # create enviroment
-    - conda env create -f cpptools-dev-requirements.yml
-
-    # activate
-    - source activate cpptools-dev-requirements
-
-    - mkdir build
-    - cd build
-    - cmake ..
-    - make -j2 
-
-
 
 script:
-# test the actual test-suite
-- cd test
-- ./test_cpptools
-- cd ..
-# test the python bindings
-- make python-test
-# test the examples
-- cd examples
-- ./hello_world
-- cd ..
-# test the benchmark
-- cd benchmark
-- ./benchmark_cpptools
-- cd ..
-# # test the conda recipe
-# - cd ..
-# - conda config --set anaconda_upload no
-# - conda build recipe
+- chmod +x tests/test_project.sh
+- ./tests/test_project.sh cpp_cookiecutter source

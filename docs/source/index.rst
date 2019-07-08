@@ -23,38 +23,18 @@ This software is licensed under the BSD 3-Clause License. See the LICENSE.txt fi
    folder_structure
 
 .. toctree::
-   :caption: Unit Test
+   :caption: Components
    :maxdepth: 2
 
    unit_tests
-
-.. toctree::
-   :caption: Benchmark
-   :maxdepth: 2
-
    benchmark
-
-.. toctree::
-   :caption: Python Bindings
-   :maxdepth: 2
-
    python
-
-.. toctree::
-   :caption: Examples
-   :maxdepth: 2
-
    examples
-
-.. toctree::
-   :caption: Conda Recipe
-   :maxdepth: 2
-
    conda_recipe
 
 .. toctree::
    :caption: Changelog
-   :maxdepth: 2
+   :maxdepth: 0
    
    changelog
 
