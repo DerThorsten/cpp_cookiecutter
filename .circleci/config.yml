@@ -83,7 +83,7 @@ jobs:
             echo "git add remote"
             git remote add origin https://github.com/DerThorsten/cpp_cookiecutter
             echo "git fetch"
-            yes yes | git fetch -q
+            yes 'yes' | git fetch -q
             echo "checkout"
             git checkout origin/master -ft -q
       - run:
