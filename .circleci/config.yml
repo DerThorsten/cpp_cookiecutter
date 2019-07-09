@@ -76,8 +76,6 @@ jobs:
       - run:
           name: clone cpptools
           command: |
-
-             ${CIRCLE_BRANCH}
             rm -rf cpptools
             cd ..
             git clone https://github.com/DerThorsten/cpptools
