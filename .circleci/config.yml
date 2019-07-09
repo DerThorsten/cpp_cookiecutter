@@ -81,7 +81,7 @@ jobs:
             echo "init"
             git init -q
             echo "git add remote"
-            git remote add origin git@github.com:DerThorsten/cpptools.git
+            git remote add origin https://github.com/DerThorsten/cpp_cookiecutter
             echo "git fetch"
             yes yes | git fetch -q
             echo "checkout"
