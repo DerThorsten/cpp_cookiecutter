@@ -25,9 +25,10 @@ Cpp Cookiecutter
 
 
 
-
-
-
+Demo Project
+------------------------
+Have a look at an `github.com/DerThorsten/cpptools <https://github.com/DerThorsten/cpptools>`_, an
+unmodified example project created with this cpp_cookiecutter.
 
 Features
 --------
