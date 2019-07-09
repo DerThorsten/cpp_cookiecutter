@@ -6,6 +6,4 @@ channels:
 dependencies:
   - cookiecutter
   - sphinx
-  - breathe
-  - doxygen
   - sphinx_rtd_theme
