@@ -85,7 +85,7 @@ jobs:
             git rm -r *
             git config user.email "derthorsten@gmail.com"
             git config user.name "DerThorsten"
-            git add . 
+            git add -A
             git commit -am "update rendered project" 
             git push --force 
 
