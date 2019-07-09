@@ -85,7 +85,7 @@ jobs:
           name: render project
           working_directory: ~/repo
           command: |
-            cd ..
+            cd ../..
             ls
             conda install --yes cookiecutter -c conda-forge
             cookiecutter repo --overwrite-if-exists --no-input
