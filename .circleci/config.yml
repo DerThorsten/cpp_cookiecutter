@@ -64,7 +64,8 @@ jobs:
       - *run_test_conda_build
   
   push_to_cpptools_job:
-    machine: true
+    docker:
+     - image: continuumio/miniconda3:4.5.12
     steps:
       - *prepare_conda
       - run:
