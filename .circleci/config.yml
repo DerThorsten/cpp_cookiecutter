@@ -79,12 +79,6 @@ jobs:
 
             rm -rf cpptools
             git clone https://github.com/DerThorsten/cpptools
-      - run:
-          name: render project
-          working_directory: ~/repo
-          command: |
-            cd ..
-            ls
             conda install --yes cookiecutter -c conda-forge
             cookiecutter https://github.com/DerThorsten/cpp_cookiecutter --overwrite-if-exists --no-input
             cd cpptools
