@@ -7,7 +7,6 @@ Besides the {{cookiecutter.project_name}} headers, all these methods place the `
 
 
 
-
 .. code-block:: shell
 
     cd {{cookiecutter.github_project_name}}
