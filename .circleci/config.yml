@@ -67,6 +67,9 @@ jobs:
     docker:
      - image: continuumio/miniconda3:4.5.12
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "a1:57:78:c8:fd:8d:58:13:09:02:4b:6e:4b:0a:ec:68"
       - *prepare_conda
       - run:
           name: clone cpptools
