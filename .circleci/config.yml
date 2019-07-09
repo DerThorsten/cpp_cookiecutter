@@ -66,6 +66,7 @@ jobs:
   push_to_cpptools_job:
     docker:
      - image: continuumio/miniconda3:4.5.12
+    working_directory: ~/repo
     steps:
       - checkout
       - add_ssh_keys:
@@ -74,13 +75,13 @@ jobs:
       - *prepare_conda
       - run:
           name: clone cpptools
-          working_directory: ~/repo
           command: |
 
             rm -rf cpptools
             git clone https://github.com/DerThorsten/cpptools
             conda install --yes cookiecutter -c conda-forge 
-            cookiecutter https://github.com/DerThorsten/cpp_cookiecutter --overwrite-if-exists --no-input  --config-file ~/repo/tests/cookiecutter_config.yaml
+            cd ..
+            cookiecutter repo --overwrite-if-exists --no-input  --config-file ~/repo/tests/cookiecutter_config.yaml
             git config user.email "derthorsten@gmail.com"
             git config user.name "DerThorsten"
             git add .
