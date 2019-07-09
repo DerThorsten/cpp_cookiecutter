@@ -10,7 +10,7 @@ variables:
 
   prepare_conda: &prepare_conda
     run:
-      name: Install from dev-requirements.yml
+      name: Config and Update Conda
       command: |
         conda config --set always_yes yes --set changeps1 no
         conda update -q conda
