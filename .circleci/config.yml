@@ -75,11 +75,16 @@ jobs:
           name: clone cpptools
           working_directory: ~/repo
           command: |
+
             mkdir -p cpptools
             cd cpptools
-            git init
+            echo "init"
+            git init -q
+            echo "git add remote"
             git remote add origin git@github.com:DerThorsten/cpptools.git
+            echo "git fetch"
             git fetch -q
+            echo "checkout"
             git checkout origin/master -ft -q
       - run:
           name: render project
