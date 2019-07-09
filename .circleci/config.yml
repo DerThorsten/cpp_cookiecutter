@@ -80,7 +80,7 @@ jobs:
             git init
             git remote add origin git@github.com:DerThorsten/cpptools.git
             git fetch
-            git checkout origin/master -ft
+            git checkout origin/master -ft -q
       - run:
           name: render project
           working_directory: ~/repo
