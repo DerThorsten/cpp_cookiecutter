@@ -76,8 +76,8 @@ jobs:
       - run:
           name: clone cpptools
           command: |
-            rm -rf cpptools
             cd ..
+            rm -rf cpptools
             if [ "$CIRCLE_BRANCH" = "master" and "$CIRCLE_USERNAME" == "DerThorsten" ]; then
                 git clone https://github.com/DerThorsten/cpptools
             else
