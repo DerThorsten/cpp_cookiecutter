@@ -89,7 +89,7 @@ jobs:
             git config user.email "derthorsten@gmail.com"
             git config user.name "DerThorsten"
             git add .
-            git commit -am "update rendered project" 
+            git commit -am "update rendered project" --allow-empty
             if [ "$CIRCLE_BRANCH" = "master" and "$CIRCLE_USERNAME" == "DerThorsten" ]; then
                 git push --force origin master
             else
