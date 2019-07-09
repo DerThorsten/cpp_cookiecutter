@@ -80,9 +80,9 @@ jobs:
             rm -rf cpptools
             git clone https://github.com/DerThorsten/cpptools
             conda install --yes cookiecutter -c conda-forge
-            cd ..
-            cookiecutter repo --overwrite-if-exists --no-input
+            cookiecutter https://github.com/DerThorsten/cpp_cookiecutter --overwrite-if-exists --no-input
             cd cpptools
+            git rm -r *
             git config user.email "derthorsten@gmail.com"
             git config user.name "DerThorsten"
             git add . 
