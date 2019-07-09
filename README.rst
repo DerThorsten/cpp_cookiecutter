@@ -134,19 +134,3 @@ On a windows machine this looks like:
     cmake --build . --target cpp-test
 
 
-
-
-
-Conda Recipe:
---------
-
-The generated projects contain a conda recipe which can be used to build conda packages.
-    
-.. code-block:: shell
-
-    cd cpptools
-    conda install conda-build
-    conda build recipe
-
-.. _cookiecutter: https://github.com/audreyr/cookiecutter
-    
