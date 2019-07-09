@@ -86,7 +86,7 @@ jobs:
             cd ..
             ls
             conda install --yes cookiecutter -c conda-forge
-            cookiecutter repo --overwrite-if-exists --no-input
+            cookiecutter https://github.com/DerThorsten/cpp_cookiecutter --overwrite-if-exists --no-input
       - deploy:
           name: Trigger docs deployment
           working_directory: ~/repo
