@@ -62,7 +62,38 @@ jobs:
       - *install_build_essential
       - *prepare_conda
       - *run_test_conda_build
-
+  
+  push_to_cpptools_job:
+    machine: true
+    steps:
+      - *prepare_conda
+      - run:
+          name: clone cpptools
+          working_directory: ~/repo
+          command: |
+            git clone --depth 1 https://${DOCS_GITHUB_TOKEN}@github.com/DerThorsten/cpptools.git
+      - run:
+          name: clone cpptools
+          working_directory: ~/repo
+          command: |
+            git clone --depth 1 git@github.com:DerThorsten/cpptools.git
+      - run:
+          name: render project
+          working_directory: ~/repo
+          command: |
+            conda install --yes cookiecutter -c conda-forge
+            cookiecutter ../repo --overwrite-if-exists --no-input
+      - deploy:
+          name: Trigger docs deployment
+          working_directory: ~/repo
+          command: |
+            cd cpptools
+            git config credential.helper 'cache --timeout=120'
+            git config user.email "derthorsten@gmail.com"
+            git config user.name "DerThorsten"
+            git add . 
+            git commit -am "update rendered project"
+            git push --force -q https://${DOCS_GITHUB_TOKEN}@github.com/DerThorsten/cpptools.git master
 
 
 workflows:
@@ -72,6 +103,7 @@ workflows:
     jobs:
       - test_job
       - test_conda_build_job
+      - push_to_cpptools_job
 
   nightly-test:
     triggers:
@@ -84,3 +116,7 @@ workflows:
     jobs:
        - test_job
        - test_conda_build_job
+       - push_to_cpptools_job
+
+
+
