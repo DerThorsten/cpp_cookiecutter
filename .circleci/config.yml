@@ -77,22 +77,15 @@ jobs:
           command: |
 
             mkdir -p cpptools
-            cd cpptools
             git clone https://github.com/DerThorsten/cpptools fubar
-            # echo "init"
-            # git init -q
-            # echo "git add remote"
-            # git remote add origin git@github.com:DerThorsten/cpptools.git
-            # echo "git fetch"
-            # yes 'yes' | git fetch -q
-            # echo "checkout"
-            # git checkout origin/master -ft -q
+            mv temp/.git cpptools/.git
+            rm -rf temp
       - run:
           name: render project
           working_directory: ~/repo
           command: |
             conda install --yes cookiecutter -c conda-forge
-            cookiecutter ../../repo --overwrite-if-exists --no-input
+            cookiecutter ../repo --overwrite-if-exists --no-input
       - deploy:
           name: Trigger docs deployment
           working_directory: ~/repo
