@@ -93,7 +93,7 @@ jobs:
             if [ "$CIRCLE_BRANCH" = "master" and "$CIRCLE_USERNAME" == "DerThorsten" ]; then
                 git push --force origin master
             else
-                git push --force  origin test
+                git push --force  origin tests
             fi
 
 
