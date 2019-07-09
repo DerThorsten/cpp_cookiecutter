@@ -10,7 +10,7 @@ variables:
 
   prepare_conda: &prepare_conda
     run:
-      name: Install from dev-requirements.yml
+      name: Config and Update Conda
       command: |
         conda config --set always_yes yes --set changeps1 no
         conda update -q conda
@@ -62,7 +62,39 @@ jobs:
       - *install_build_essential
       - *prepare_conda
       - *run_test_conda_build
-
+  
+  push_to_cpptools_job:
+    docker:
+     - image: continuumio/miniconda3:4.5.12
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "a1:57:78:c8:fd:8d:58:13:09:02:4b:6e:4b:0a:ec:68"
+      - *prepare_conda
+      - run:
+          name: clone cpptools
+          command: |
+            cd ..
+            rm -rf cpptools
+            if [ "$CIRCLE_BRANCH" = "master" and "$CIRCLE_USERNAME" == "DerThorsten" ]; then
+                git clone https://github.com/DerThorsten/cpptools
+            else
+                git clone https://github.com/DerThorsten/cpptools -b tests
+            fi
+            conda install --yes cookiecutter -c conda-forge 
+            cookiecutter repo --overwrite-if-exists --no-input  --config-file ~/repo/tests/cookiecutter_config.yaml
+            cd cpptools
+            git config user.email "derthorsten@gmail.com"
+            git config user.name "DerThorsten"
+            git add .
+            git commit -am "update rendered project" --allow-empty
+            if [ "$CIRCLE_BRANCH" = "master" and "$CIRCLE_USERNAME" == "DerThorsten" ]; then
+                git push --force origin master
+            else
+                git push --force  origin tests
+            fi
 
 
 workflows:
@@ -72,6 +104,7 @@ workflows:
     jobs:
       - test_job
       - test_conda_build_job
+      - push_to_cpptools_job
 
   nightly-test:
     triggers:
@@ -84,3 +117,5 @@ workflows:
     jobs:
        - test_job
        - test_conda_build_job
+       - push_to_cpptools_job
+
