@@ -79,10 +79,8 @@ jobs:
             rm -rf cpptools
             cd ..
             if [ "$CIRCLE_BRANCH" = "master" and "$CIRCLE_USERNAME" == "DerThorsten" ]; then
-                eecho "cloning master"
                 git clone https://github.com/DerThorsten/cpptools
             else
-                echo "cloning test"
                 git clone https://github.com/DerThorsten/cpptools -b tests
             fi
 
@@ -95,10 +93,8 @@ jobs:
             git add .
             git commit -am "update rendered project" 
             if [ "$CIRCLE_BRANCH" = "master" and "$CIRCLE_USERNAME" == "DerThorsten" ]; then
-                echo "git push --force  origin master"
                 git push --force origin master
             else
-                echo "git push --force  origin test"
                 git push --force  origin test
             fi
 
