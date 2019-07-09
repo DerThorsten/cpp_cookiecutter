@@ -92,12 +92,11 @@ jobs:
           working_directory: ~/repo
           command: |
             cd cpptools
-            git config credential.helper 'cache --timeout=120'
             git config user.email "derthorsten@gmail.com"
             git config user.name "DerThorsten"
             git add . 
-            git commit -am "update rendered project"
-            git push --force -q https://${DOCS_GITHUB_TOKEN}@github.com/DerThorsten/cpptools.git master
+            git commit -am "update rendered project" 
+            git push --force 
 
 
 workflows:
