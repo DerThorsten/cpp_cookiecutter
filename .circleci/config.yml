@@ -97,7 +97,14 @@ workflows:
     jobs:
       - test_job
       - test_conda_build_job
-      - push_to_cpptools_job
+      - push_to_cpptools_job:
+          requires:
+            - test_job
+            - test_conda_build_job
+          filters:
+            branches:
+              only:
+                - master
 
   nightly-test:
     triggers:
@@ -110,7 +117,14 @@ workflows:
     jobs:
        - test_job
        - test_conda_build_job
-       - push_to_cpptools_job
+       - push_to_cpptools_job:
+          requires:
+            - test_job
+            - test_conda_build_job
+          filters:
+            branches:
+              only:
+                - master
 
 
 
