@@ -72,12 +72,12 @@ jobs:
           name: clone cpptools
           working_directory: ~/repo
           command: |
-            git clone --depth 1 https://${DOCS_GITHUB_TOKEN}@github.com/DerThorsten/cpptools.git
-      - run:
-          name: clone cpptools
-          working_directory: ~/repo
-          command: |
-            git clone --depth 1 git@github.com:DerThorsten/cpptools.git
+            mkdir -p cpptools
+            cd cpptools
+            git init
+            git remote add origin github.com/DerThorsten/cpptools.git
+            git fetch
+            git checkout origin/master -ft
       - run:
           name: render project
           working_directory: ~/repo
