@@ -86,6 +86,7 @@ jobs:
           working_directory: ~/repo
           command: |
             cd ..
+            ls
             conda install --yes cookiecutter -c conda-forge
             cookiecutter repo --overwrite-if-exists --no-input
       - deploy:
