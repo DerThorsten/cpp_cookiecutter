@@ -77,6 +77,7 @@ jobs:
           name: clone cpptools
           command: |
 
+             ${CIRCLE_BRANCH}
             rm -rf cpptools
             cd ..
             git clone https://github.com/DerThorsten/cpptools
@@ -87,7 +88,11 @@ jobs:
             git config user.name "DerThorsten"
             git add .
             git commit -am "update rendered project" 
-            git push --force 
+            if [ "$CIRCLE_BRANCH" = "master" ]; then
+                git push --force 
+            else
+                git push --force  origin test
+            fi
 
 
 workflows:
