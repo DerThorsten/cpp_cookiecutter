@@ -82,10 +82,9 @@ jobs:
             conda install --yes cookiecutter -c conda-forge
             cookiecutter https://github.com/DerThorsten/cpp_cookiecutter --overwrite-if-exists --no-input
             cd cpptools
-            git rm -r *
             git config user.email "derthorsten@gmail.com"
             git config user.name "DerThorsten"
-            git add -A
+            git add .
             git commit -am "update rendered project" 
             git push --force 
 
