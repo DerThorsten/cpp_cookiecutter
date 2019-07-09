@@ -75,7 +75,7 @@ jobs:
             mkdir -p cpptools
             cd cpptools
             git init
-            git remote add origin github.com/DerThorsten/cpptools.git
+            git remote add origin git@github.com:DerThorsten/cpptools.git
             git fetch
             git checkout origin/master -ft
       - run:
