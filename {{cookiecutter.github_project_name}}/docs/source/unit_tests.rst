@@ -21,7 +21,7 @@ The test older looks like.
     ├── test
     │   ├── CMakeLists.txt
     │   ├── main.cpp         
-    │   ├── test_{{cookiecutter.pacakge_name}}_config.cpp
+    │   ├── test_{{cookiecutter.package_name}}_config.cpp
     ├── ...
 
 
@@ -30,7 +30,7 @@ The test older looks like.
 Build System
 **********************
 
-There is a meta target called :bash:`test_{{cookiecutter.pacakge_name}}` which bundles the
+There is a meta target called :bash:`test_{{cookiecutter.package_name}}` which bundles the
 build process of unit tests.
 Assuming you cmake-build directory is called :bash:`bld` the following
 will build all examples.
