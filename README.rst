@@ -27,7 +27,7 @@ Cpp Cookiecutter
 
 Demo Project
 ------------------------
-Have a look at an `github.com/DerThorsten/cpptools <https://github.com/DerThorsten/cpptools>`_, an
+Have a look at `github.com/DerThorsten/cpptools <https://github.com/DerThorsten/cpptools>`_, an
 unmodified example project created with this cpp_cookiecutter.
 
 Features
@@ -47,6 +47,8 @@ Current features include:
       since these dependencies are just for testing and benchmarking (and those are not yet available on conda)
     * bumpversion
     * `Python bindings are created via pybind11 <https://cpp-cookiecutter.readthedocs.io/en/latest/python.html>`_
+    * An demo project `github.com/DerThorsten/cpptools <https://github.com/DerThorsten/cpptools>`_
+    created by this cookiecutter, and automatically kept up to date via continuous integration
    
 
 .. _rtd_unit_test:
