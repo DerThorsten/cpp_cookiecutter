@@ -80,7 +80,7 @@ jobs:
             rm -rf cpptools
             echo "CIRCLE_BRANCH $CIRCLE_BRANCH"
             echo "CIRCLE_USERNAME  $CIRCLE_USERNAME"
-            if [[ "$CIRCLE_BRANCH $CIRCLE_USERNAME" == "master DerThorsten"]]; then
+            if [[ "$CIRCLE_BRANCH $CIRCLE_USERNAME" == "master DerThorsten" ]]; then
                 echo "IN master"
                 git clone https://github.com/DerThorsten/cpptools
             else
@@ -94,7 +94,7 @@ jobs:
             git config user.name "DerThorsten"
             git add .
             git commit -am "update rendered project" --allow-empty
-            if [[ "$CIRCLE_BRANCH $CIRCLE_USERNAME" == "master DerThorsten"]]; then
+            if [[ "$CIRCLE_BRANCH $CIRCLE_USERNAME" == "master DerThorsten" ]]; then
                   echo "IN master"
                   git push --force origin master
             else
