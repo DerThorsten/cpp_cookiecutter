@@ -78,6 +78,8 @@ jobs:
           command: |
             cd ..
             rm -rf cpptools
+            echo "CIRCLE_BRANCH $CIRCLE_BRANCH"
+            echo "CIRCLE_USERNAME  $CIRCLE_USERNAME"
             if [ "$CIRCLE_BRANCH" = "master"] and ["$CIRCLE_USERNAME" == "DerThorsten" ]; then
                 git clone https://github.com/DerThorsten/cpptools
             else
