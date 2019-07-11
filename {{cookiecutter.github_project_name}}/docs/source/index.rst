@@ -13,9 +13,10 @@ This software is licensed under the {{cookiecutter.open_source_license}} license
 
 
 .. toctree::
-   :caption: Usage
+   :caption: Basics
    :maxdepth: 2
 
+   features
    basic_usage
 
 .. toctree::
