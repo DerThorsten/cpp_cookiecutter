@@ -93,7 +93,7 @@ jobs:
             git config user.email "derthorsten@gmail.com"
             git config user.name "DerThorsten"
             git add .
-            git commit -am "update rendered project" --allow-empty
+            git commit -am "continous integration auto updated" --allow-empty
             if [[ "$CIRCLE_BRANCH $CIRCLE_USERNAME" == "master DerThorsten" ]]; then
                   echo "IN master"
                   git push --force origin master
