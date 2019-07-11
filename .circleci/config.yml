@@ -90,7 +90,7 @@ jobs:
             git config user.name "DerThorsten"
             git add .
             git commit -am "update rendered project" --allow-empty
-            if [ "$CIRCLE_BRANCH" = "master" && "$CIRCLE_USERNAME" == "DerThorsten" ]; then
+            if [ "$CIRCLE_BRANCH" = "master"] && ["$CIRCLE_USERNAME" == "DerThorsten" ]; then
                 git push --force origin master
             else
                 git push --force  origin tests
