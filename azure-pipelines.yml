@@ -30,7 +30,6 @@ jobs:
           chmod +x tests/test_project.sh 
           ./tests/test_project.sh $(repoDir) source
 
-
   - job:
     displayName: Windows
     pool:
@@ -109,6 +108,11 @@ jobs:
       displayName: run tests
 
 
-
-
+schedules:
+  - cron: "0 0 * * *"
+    displayName: Daily midnight build
+    branches:
+      include:
+      - master
+    always: true
 
