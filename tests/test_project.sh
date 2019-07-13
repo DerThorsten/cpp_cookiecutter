@@ -58,7 +58,7 @@ cd build || exit 1
 echo "------------------------------------------------------------"
 echo "run cmake"
 echo "------------------------------------------------------------"
-cmake .. || exit 1
+cmake .. -DSPHINX_EXECUTABLE=$(locate sphinx-build -n 1)|| exit 1
 
 echo "------------------------------------------------------------"
 echo "build project"
