@@ -23,3 +23,6 @@ dependencies:
   - xtensor-python
   - pybind11
   {% endif %}
+  - pip
+  - pip:
+    - exhale
