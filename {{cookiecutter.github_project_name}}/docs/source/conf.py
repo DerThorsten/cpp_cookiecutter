@@ -4,8 +4,8 @@
 import os
 import subprocess
 
-on_rtd = os.environ.get('READTHEDOCS') is not None
-on_travis = os.environ.get('TRAVIS') is not None
+on_rtd  = os.environ.get('READTHEDOCS', None) == 'True'
+on_travis = os.environ.get('TRAVIS', None) == 'True'
 on_ci = on_rtd or on_travis
 
 # if on_ci:
