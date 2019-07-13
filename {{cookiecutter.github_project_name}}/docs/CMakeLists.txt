@@ -32,7 +32,7 @@ set(SPHINX_CACHE_DIR "${CMAKE_BINARY_DIR}/docs_bld/docs/_doctrees")
 # HTML output directory
 set(SPHINX_HTML_DIR "${CMAKE_BINARY_DIR}/docs_bld/html")
   
-add_custom_target(docs ALL
+add_custom_target(docs 
     ${SPHINX_EXECUTABLE}
         -q -b html
         -c "${BINARY_BUILD_DIR}"
