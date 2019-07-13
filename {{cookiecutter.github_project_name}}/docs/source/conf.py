@@ -4,10 +4,12 @@
 import os
 import subprocess
 
-on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+on_rtd = os.environ.get('READTHEDOCS') is not None
+on_travis = os.environ.get('TRAVIS') is not None
+on_ci = on_rtd or on_travis
 
-if on_rtd:
-    subprocess.call('cd ..; doxygen', shell=True)
+# if on_ci:
+#     subprocess.call('cd ..; doxygen', shell=True)
 
 import sys
 import os
@@ -44,7 +46,10 @@ def patch_apidoc(folder):
 
 # build everything
 package_name = "{{cookiecutter.python_package_name}}"
-if on_rtd:
+this_dir = os.path.dirname(__file__)
+py_mod_path  = os.path.join(this_dir, '../../python/module')
+
+if on_ci:
 
     cmake_defs = "-DDOWNLOAD_DOCTEST=OFF -DBUILD_PYTHON=ON  -DBUILD_TEST=OFF  -DBUILD_EXAMPLES=OFF -DDOWNLOAD_GOOGLE_BENCHMARK=OFF -DBUILD_BENCHMARK=OFF"
     cmake_py_ver = "-DPYTHON_EXECUTABLE=%s"%(str(sys.executable),)
