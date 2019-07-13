@@ -7,12 +7,16 @@ dependencies:
   - make
   - cmake >=3.1
   - sphinx 
+  - sphinx_rtd_theme
+  - sphinxcontrib-apidoc 
   - breathe
   - doxygen
-  - sphinx_rtd_theme
   - pytest
   - xtl
   - xtensor
+  - sphinx
+  - doxygen
+  - breathe
   {% if cookiecutter.python_bindings == 'yes' -%}
   - python >=3.6
   - numpy
