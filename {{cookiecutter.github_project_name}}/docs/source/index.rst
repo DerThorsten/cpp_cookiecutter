@@ -35,6 +35,7 @@ This software is licensed under the {{cookiecutter.open_source_license}} license
    examples
    conda_recipe
 
+
 .. toctree::
    :caption: Examples
    :maxdepth: 2
@@ -42,14 +43,14 @@ This software is licensed under the {{cookiecutter.open_source_license}} license
    examples.rst
 
 .. toctree::
-   :caption: Api Reference
+   :caption: C++ Api Reference
    :maxdepth: 2
    
-   api/{{cookiecutter.project_name}}.rst
+   api/{{cookiecutter.project_name}}_api.rst
 
+.. toctree::
+   :caption: Python Reference
+   :maxdepth: 2
+   
+   pyapi/modules.rst
 
-
-.. _NumPy: http://www.numpy.org
-.. _Buffer Protocol: https://docs.python.org/3/c-api/buffer.html
-.. _libdynd: http://libdynd.org
-.. _xtensor-python: https://github.com/QuantStack/xtensor-python
