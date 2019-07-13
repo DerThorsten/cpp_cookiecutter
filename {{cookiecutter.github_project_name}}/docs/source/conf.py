@@ -19,7 +19,11 @@ if on_rtd:
 
     cmake_defs = "-DDOWNLOAD_DOCTEST=OFF -DBUILD_TEST=OFF  -DBUILD_EXAMPLES=OFF -DDOWNLOAD_GOOGLE_BENCHMARK=OFF -DBUILD_BENCHMARK=OFF"
     cmake_py_ver = "-DPYTHON_EXECUTABLE=%s"%(str(sys.executable),)
-    subprocess.call('cd ../.. && cmake . %s %s && make -j2'%(cmake_defs, cmake_py_ver),          shell=True)
+    subprocess.call('cd ../.. && cmake . %s %s && make -j2 && make install'%(cmake_defs, cmake_py_ver),          shell=True)
+
+    import sys
+    import os
+    sys.path.append(os.path.join(os.path.dirname(__file__), '../../python'))
 
 
 html_theme = "sphinx_rtd_theme"
