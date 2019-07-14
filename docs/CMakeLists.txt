@@ -1,0 +1,1 @@
+file(COPY ${CMAKE_SOURCE_DIR}/docs DESTINATION ${CMAKE_BINARY_DIR}/docs_bld)

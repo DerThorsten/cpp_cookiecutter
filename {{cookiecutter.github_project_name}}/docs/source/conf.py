@@ -3,21 +3,25 @@
 
 import os
 import subprocess
-
-on_rtd  = os.environ.get('READTHEDOCS', None) == 'True'
-on_travis = os.environ.get('TRAVIS', None) == 'True'
-on_ci = on_rtd or on_travis
-
-# if on_ci:
-#     subprocess.call('cd ..; doxygen', shell=True)
+import sys
+import os
+import shutil
+import fnmatch
+import sphinx_rtd_theme
 
 import sys
 import os
 import shutil
 import fnmatch
-
-
 import sphinx_rtd_theme
+import os
+import subprocess
+
+on_rtd  = os.environ.get('READTHEDOCS', None) == 'True'
+on_travis = os.environ.get('TRAVIS', None) == 'True'
+on_ci = on_rtd or on_travis
+
+
 
 
 def erase_folder_content(folder):
@@ -44,6 +48,7 @@ def patch_apidoc(folder):
             with open(fname, 'w') as file:
               file.write(filedata)
 
+
 # build everything
 package_name = "{{cookiecutter.python_package_name}}"
 this_dir = os.path.dirname(__file__)
@@ -60,23 +65,29 @@ if on_ci:
     import os
     this_dir = os.path.dirname(__file__)
     py_mod_path  = os.path.join(this_dir, '../../python/module')
-    package_dir = os.path.join(py_mod_path, package_name)
     sys.path.append(py_mod_path)
+    input_arg =  "INPUT = ../../include"
+else:
+    import runpy
+    f = os.path.join(this_dir, 'cmake_path.py')
+    res_dict = runpy.run_path(f)
+    py_mod_path = res_dict['py_mod_path']
+    include_path = res_dict['include_path']
+    sys.path.append(py_mod_path)
+    package_dir = os.path.join(py_mod_path, package_name)
+    input_arg = "INPUT = {}".format(include_path)
 
 
-    # apidoc
-    # todo, erase old apidoc result
-
-    apidoc_out_folder =  os.path.join(this_dir, 'pyapi')
-    template_dir =  os.path.join(this_dir, '_template')
-    erase_folder_content(apidoc_out_folder)
-    arglist = ['sphinx-apidoc','-o',apidoc_out_folder,package_dir,'-P']
-    print(arglist)
-    subprocess.call(arglist, shell=False)
+apidoc_out_folder =  os.path.join(this_dir, 'pyapi')
+template_dir =  os.path.join(this_dir, '_template')
+erase_folder_content(apidoc_out_folder)
+arglist = ['sphinx-apidoc','-o',apidoc_out_folder,package_dir,'-P']
+print(arglist)
+subprocess.call(arglist, shell=False)
 
 
-    # patch apidoc (the conda version does not support -t / --templatedir opt)
-    patch_apidoc(apidoc_out_folder)
+# patch apidoc (the conda version does not support -t / --templatedir opt)
+patch_apidoc(apidoc_out_folder)
 
 
 
@@ -88,11 +99,6 @@ html_theme_path = [
     'mytheme',
     '.'
 ]
-
-
-# html_theme_options = {
-#   "codebgcolor": 'black'
-# }
 
 
 #html_static_path = ['_static']
