@@ -51,7 +51,7 @@ py_mod_path  = os.path.join(this_dir, '../../python/module')
 
 if on_ci:
 
-    cmake_defs = "-DDOWNLOAD_DOCTEST=OFF -DBUILD_PYTHON=ON  -DBUILD_DOCS=OFF  -DBUILD_EXAMPLES=OFF -DDOWNLOAD_GOOGLE_BENCHMARK=OFF -DBUILD_BENCHMARK=OFF"
+    cmake_defs = "-DDOWNLOAD_DOCTEST=OFF -DBUILD_PYTHON=ON  -DBUILD_DOCS=OFF -DBUILD_TESTS=OFF  -DBUILD_EXAMPLES=OFF -DDOWNLOAD_GOOGLE_BENCHMARK=OFF -DBUILD_EXAMPLES=OFF -DBUILD_BENCHMARK=OFF"
     cmake_py_ver = "-DPYTHON_EXECUTABLE=%s"%(str(sys.executable),)
     subprocess.call('cd ../.. && cmake . %s %s && make -j2'%(cmake_defs, cmake_py_ver),          shell=True)
 
