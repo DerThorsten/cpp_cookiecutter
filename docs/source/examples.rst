@@ -22,7 +22,7 @@ Build System
 
 There is a meta target called :bash:`examples` which bundles the
 build process of all cpp files in the folder examples in one target.
-Assuming you cmake-build directory is called :bash:`bld` the following
+Assuming your cmake-build directory is called :bash:`bld` the following
 will build all examples.
 
 .. code-block:: shell
