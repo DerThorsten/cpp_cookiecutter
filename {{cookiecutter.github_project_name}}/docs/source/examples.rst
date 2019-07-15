@@ -4,6 +4,10 @@
 Examples
 =================
 
+
+Folder Structure
+**********************
+
 The examples subfolder contains C++ examples which
 shall show the usage of the C++ library.
 
