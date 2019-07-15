@@ -67,6 +67,7 @@ if on_ci:
     py_mod_path  = os.path.join(this_dir, '../../python/module')
     package_dir = os.path.join(py_mod_path, package_name)
     sys.path.append(py_mod_path)
+    package_dir = os.path.join(py_mod_path, package_name)
     input_arg =  "INPUT = ../../include"
 else:
     import runpy
