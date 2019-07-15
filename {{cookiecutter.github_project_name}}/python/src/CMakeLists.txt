@@ -18,6 +18,8 @@ pybind11_add_module(${PY_MOD_LIB_NAME}
     def_myclass.cpp
 )
 
+
+
 # `link` against pybind11 interface module
 target_link_libraries(${PY_MOD_LIB_NAME} PUBLIC  
     ${INTERFACE_LIB_NAME}
@@ -29,6 +31,9 @@ set(PY_INCLUDE_DIRS
     ${xtensor-python_INCLUDE_DIRS}
 )
 target_include_directories(${PY_MOD_LIB_NAME} PUBLIC  ${PY_INCLUDE_DIRS})
+
+# custom target for `make python-module`
+add_custom_target(python-module DEPENDS ${PY_MOD_LIB_NAME})
 
 
 
