@@ -3,6 +3,10 @@
 Python Module
 =================
 
+Here we document how to use and extend the python bindings for a project created with this cookiecutter.
+See `cpptools.readthedocs.io/en/latest/python.html https://cpptools.readthedocs.io/en/latest/python.html>`_
+for the python documentation of a sample project created with this cookiecutter.
+
 Folder Structure
 **********************
 
