@@ -64,16 +64,23 @@ find_package(xtensor  REQUIRED)
 SET(INTERFACE_LIB_NAME {{cookiecutter.cmake_interface_library_name}})
 
 
+
 file(GLOB_RECURSE ${PROJECT_NAME}_HEADERS  ${PROJECT_INCLUDE_DIR}/*.hpp)
 
 
 add_library(${INTERFACE_LIB_NAME} INTERFACE)
+
+message(STATUS "INSTALL_INTERFACE: ${CMAKE_INSTALL_INCLUDEDIR}")
+target_include_directories(${INTERFACE_LIB_NAME}  INTERFACE 
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+
+
+
 target_link_libraries(${INTERFACE_LIB_NAME} 
   INTERFACE xtensor)
 
-target_include_directories(${INTERFACE_LIB_NAME}
-    INTERFACE   $<BUILD_INTERFACE:${PROJECT_INCLUDE_DIR}>
-                $<INSTALL_INTERFACE:include>)
+
 
 # Benchmark
 # ============
@@ -135,20 +142,29 @@ endif()
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
-install(TARGETS ${PROJECT_NAME}
-        EXPORT ${PROJECT_NAME}-targets)
-
-# Makes the project importable from the build directory
-export(EXPORT ${PROJECT_NAME}-targets
-       FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Targets.cmake")
-
-# install(FILES ${${PROJECT_NAME}_HEADERS}
-#         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${CPP_ROOT_FOLDER_NAME})
-install(DIRECTORY  ${PROJECT_INCLUDE_DIR}/${CPP_ROOT_FOLDER_NAME}
-  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 set(${PROJECT_NAME}_CMAKECONFIG_INSTALL_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}" CACHE
     STRING "install path for ${PROJECT_NAME}Config.cmake")
+
+
+message(STATUS "DEST ${${PROJECT_NAME}_CMAKECONFIG_INSTALL_DIR}" )
+
+
+install(TARGETS ${INTERFACE_LIB_NAME}
+        EXPORT ${INTERFACE_LIB_NAME}-targets)
+
+install(EXPORT ${INTERFACE_LIB_NAME}-targets
+        FILE ${INTERFACE_LIB_NAME}Targets.cmake
+        #NAMESPACE ${PROJECT_NAME}:: 
+        DESTINATION lib/cmake/${PROJECT_NAME}
+         )
+
+
+install(DIRECTORY  ${PROJECT_INCLUDE_DIR}/${CPP_ROOT_FOLDER_NAME}
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+
+
+
 
 configure_package_config_file(${PROJECT_NAME}Config.cmake.in
                               "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
@@ -167,6 +183,7 @@ set(CMAKE_SIZEOF_VOID_P ${_${PROJECT_NAME}_CMAKE_SIZEOF_VOID_P})
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
               ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
         DESTINATION ${${PROJECT_NAME}_CMAKECONFIG_INSTALL_DIR})
+
 install(EXPORT ${PROJECT_NAME}-targets
         FILE ${PROJECT_NAME}Targets.cmake
         DESTINATION ${${PROJECT_NAME}_CMAKECONFIG_INSTALL_DIR})
