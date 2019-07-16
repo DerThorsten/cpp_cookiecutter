@@ -15,7 +15,7 @@
 .. image:: https://circleci.com/gh/{{cookiecutter.github_user_name}}/{{cookiecutter.github_project_name}}/tree/master.svg?style=svg
     :target: https://circleci.com/gh/{{cookiecutter.github_user_name}}/{{cookiecutter.github_project_name}}/tree/master
 
-.. image:: https://dev.azure.com/{{cookiecutter.azure_user_name}}/{{cookiecutter.github_project_name}}/_apis/build/status/e:: https://dev.azure.com/{{cookiecutter.azure_user_name}}/{{cookiecutter.github_project_name}}/_apis/build/status/{{cookiecutter.github_user_name}}.{{cookiecutter.github_project_name}}?branchName=master
+.. image:: https://dev.azure.com/{{cookiecutter.azure_user_name}}/{{cookiecutter.github_project_name}}/_apis/build/status/{{cookiecutter.github_user_name}}.{{cookiecutter.github_project_name}}?branchName=master
     :target: https://dev.azure.com/{{cookiecutter.azure_user_name}}/{{cookiecutter.github_project_name}}/_build/latest?definitionId=1&branchName=master
 
 
