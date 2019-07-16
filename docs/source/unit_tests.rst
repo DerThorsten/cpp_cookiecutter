@@ -23,7 +23,7 @@ folder looks like.
     │   ├── CMakeLists.txt
     │   ├── main.cpp         
     │   ├── test_cpptools_config.cpp
-    ├── ...
+    └── ...
 
 
 
@@ -42,6 +42,7 @@ will build all examples.
     $ make test_cpptools
 
 To run the actual test you can use the target :bash:`cpp_tests`
+
 .. code-block:: shell
 
     $ cd bld
