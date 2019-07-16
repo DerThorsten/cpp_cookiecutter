@@ -31,7 +31,7 @@ Features
 Current features include: 
     * Readme on `readthedocs.org <https://cpp-cookiecutter.readthedocs.io/en/latest/>`_
     * Modern C++ 14
-    * Build system with modernized yet not modern CMake  (this is a major todo)
+    * Build system with modern CMake
     * `preconfigured conda recipe included <https://cpp-cookiecutter.readthedocs.io/en/latest/conda_recipe.html>`_
     * Rendered projects have pre-configured CI scripts for: travis-ci circleci and azure-pipelines
     * Rendering of projects itself is tested on several continuous integration plattforms as `travis-ci <https://travis-ci.org/DerThorsten/cpp_cookiecutter>`_ `circleci <https://circleci.com/gh/DerThorsten/cpp_cookiecutter/tree/master>`_ and `azure-pipelines <https://dev.azure.com/derthorstenbeier/cpp_cookiecutter/_build/latest?definitionId=1&branchName=master>`_
@@ -48,14 +48,6 @@ Current features include:
 .. _rtd_unit_test:
 
 
-
-
-
-Todos:
---------
-
-Things which need to be done
-    * Add better documentation how to use the cookiecutter
 
 
 
