@@ -120,13 +120,13 @@ cd ../../$TEMPLATE_FOLDER/tests/toy_project
 echo "------------------------------------------------------------"
 echo "run cmake for toy project depending on rendered project"
 echo "------------------------------------------------------------"
-cmake .
+cmake . || 0
 
 
 echo "------------------------------------------------------------"
 echo "build toy project depending on rendered project"
 echo "------------------------------------------------------------"
-make 
+make || 0
 
 
 echo "------------------------------------------------------------"
