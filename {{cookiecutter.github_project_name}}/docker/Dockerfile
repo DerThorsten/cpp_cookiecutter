@@ -17,8 +17,6 @@ RUN cd {{cookiecutter.github_project_name}} && conda env create -f {{cookiecutte
 RUN echo "source activate {{cookiecutter.package_name}}-dev-requirements" > ~/.bash
 ENV PATH /opt/conda/envs/{{cookiecutter.package_name}}-dev-requirements/bin:$PATH
 
-
-
 # activate
 #RUN conda activate {{cookiecutter.github_project_name}}-dev-requirements
 
