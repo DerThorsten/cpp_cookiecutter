@@ -10,14 +10,18 @@ We use doctest_ to create a benchmark for the C++ code.
 
 The test subfolder contains all the code related 
 to the C++ unit tests.
-In :bash:`main.cpp` implements the benchmarks runner,
-The unit tets are implemented in :bash:`test_*.cpp`.
-Assuming your project is names :bash:`cpptools`, the test
-folder looks like.
+In :code:`main.cpp` implements the benchmarks runner,
+The unit tets are implemented in :code:`test_*.cpp`.
+
+
+For better readability we assume that the rendered project uses the default values
+for the cookiecutter variables.
+This means instead of :code:`{{cookiecutter.github_project_name}}`
+ we will use :code:`cpptools`
 
 ::
 
-    project
+    cpptools
     ├── ...
     ├── test
     │   ├── CMakeLists.txt
@@ -31,9 +35,9 @@ folder looks like.
 Build System
 **********************
 
-There is a meta target called :bash:`test_cpptools` (assuming your cpptools is the package name) which bundles the
+There is a meta target called :code:`test_cpptools` (assuming your cpptools is the package name) which bundles the
 build process of unit tests.
-Assuming you cmake-build directory is called :bash:`bld` the following
+Assuming you cmake-build directory is called :code:`bld` the following
 will build all examples.
 
 .. code-block:: shell
@@ -41,7 +45,7 @@ will build all examples.
     $ cd bld
     $ make test_cpptools
 
-To run the actual test you can use the target :bash:`cpp_tests`
+To run the actual test you can use the target :code:`cpp_tests`
 
 .. code-block:: shell
 
@@ -53,9 +57,9 @@ Adding New Tests
 **********************
 
 To add new tests just add a new cpp file to the test
-folder and update the :bash:`CMakeLists.txt`.
-Assuming we named the new cpp file :bash:`test_my_new_feture.cpp`, 
-the relevant part in the :bash:`CMakeLists.txt` shall look like this:
+folder and update the :code:`CMakeLists.txt`.
+Assuming we named the new cpp file :code:`test_my_new_feture.cpp`, 
+the relevant part in the :code:`CMakeLists.txt` shall look like this:
 
 .. code-block:: cmake
 
@@ -68,9 +72,9 @@ the relevant part in the :bash:`CMakeLists.txt` shall look like this:
 
 
 
-After changing the :bash:`CMakeLists.txt` cmake needs to be rerun
+After changing the :code:`CMakeLists.txt` cmake needs to be rerun
 to configure the build again.
-After that  :bash:`make examples` will build all examples including the
+After that  :code:`make examples` will build all examples including the
 freshly added examples.
 
 .. code-block:: shell
