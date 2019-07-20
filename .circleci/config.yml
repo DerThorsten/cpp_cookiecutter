@@ -97,10 +97,16 @@ jobs:
             if [[ "$CIRCLE_BRANCH $CIRCLE_USERNAME" == "master DerThorsten" ]]; then
                   echo "IN master"
                   git push --force origin master
+
+                  GIT_TAG=v_$(date +%Y_%m_%d_%H_%M_%S)
+                  git tag -a $GIT_TAG -m '$GIT_TAG'
+                  git push origin $GIT_TAG
             else
               echo "NOT IN master"
               git push --force origin tests
             fi
+
+            
 
 
 workflows:
