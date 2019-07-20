@@ -90,6 +90,11 @@ jobs:
             conda install --yes cookiecutter -c conda-forge 
             cookiecutter repo --overwrite-if-exists --no-input  --config-file ~/repo/tests/cookiecutter_config.yaml
             cd cpptools
+
+            GIT_TAG=v_$(date +%Y_%m_%d_%H_%M_%S)
+            if [[ "$CIRCLE_BRANCH $CIRCLE_USERNAME" == "master DerThorsten" ]]; then
+              sed -i 's/v0.1.0/$GIT_TAG/g' binder/Dockerfile
+            fi
             git config user.email "derthorsten@gmail.com"
             git config user.name "DerThorsten"
             git add .
@@ -97,8 +102,6 @@ jobs:
             if [[ "$CIRCLE_BRANCH $CIRCLE_USERNAME" == "master DerThorsten" ]]; then
                   echo "IN master"
                   git push --force origin master
-
-                  GIT_TAG=v_$(date +%Y_%m_%d_%H_%M_%S)
                   git tag -a $GIT_TAG -m '$GIT_TAG'
                   git push origin $GIT_TAG
             else

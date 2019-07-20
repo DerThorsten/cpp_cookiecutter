@@ -1,4 +1,4 @@
-FROM derthorsten/cpptools:latest
+FROM derthorsten/cpptools:v0.1.0
 
 
 ##########################################
