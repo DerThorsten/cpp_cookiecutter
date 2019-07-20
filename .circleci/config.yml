@@ -93,7 +93,7 @@ jobs:
 
             GIT_TAG=v_$(date +%Y_%m_%d_%H_%M_%S)
             if [[ "$CIRCLE_BRANCH $CIRCLE_USERNAME" == "master DerThorsten" ]]; then
-              sed -i 's/v0.1.0/$GIT_TAG/g' binder/Dockerfile
+              sed -i "s/v0.1.0/$GIT_TAG/g" binder/Dockerfile
             fi
             git config user.email "derthorsten@gmail.com"
             git config user.name "DerThorsten"
