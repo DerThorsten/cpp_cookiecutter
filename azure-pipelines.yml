@@ -12,8 +12,8 @@ jobs:
         inputs:
           updateConda: false
       - script: |
-          chmod +x tests/test_project.sh 
-          ./tests/test_project.sh $(repoDir) source
+          chmod +x tests/test_project.sh || exit 1
+          ./tests/test_project.sh $(repoDir) source || exit 1
 
   - job: macOS
     pool:
@@ -27,8 +27,8 @@ jobs:
         displayName: Add conda to PATH
 
       - script: |
-          chmod +x tests/test_project.sh 
-          ./tests/test_project.sh $(repoDir) source
+          chmod +x tests/test_project.sh || exit 1
+          ./tests/test_project.sh $(repoDir) source || exit 1
 
   - job:
     displayName: Windows
@@ -48,63 +48,63 @@ jobs:
     - powershell: Write-Host "##vso[task.prependpath]$env:CONDA\Scripts"
       displayName: Add conda to PATH
 
-    - script: conda create --yes --quiet --name myroot
+    - script: conda create --yes --quiet --name myroot|| exit 1
       displayName: Create Anaconda environment
 
     - script: |
-        call activate myroot
-        conda install --yes --quiet --name myroot cookiecutter -c conda-forge
+        call activate myroot || exit 1
+        conda install --yes --quiet --name myroot cookiecutter -c conda-forge || exit 1
       displayName: Install Anaconda packages
       
     - script: |
-        echo "activate"
-        call activate myroot
-        echo "cd"
-        cd ..
-        echo "run cookiecutter"
-        cookiecutter %repoDir% --overwrite-if-exists --no-input
+        echo "activate"  || exit 1
+        call activate myroot || exit 1
+        echo "cd" || exit 1
+        cd .. || exit 1
+        echo "run cookiecutter" || exit 1
+        cookiecutter %repoDir% --overwrite-if-exists --no-input || exit 1
       displayName: generating project from cookiecutter
 
     - script: |
-        echo "activate"
-        call activate myroot
-        echo "cd path"
-        cd ..
-        cd cpptools
-        echo "create"
-        conda env create   -f cpptools-dev-requirements.yml
-        echo "done"
+        echo "activate" || exit 1
+        call activate myroot || exit 1
+        echo "cd path" || exit 1
+        cd .. || exit 1
+        cd cpptools || exit 1
+        echo "create" || exit 1
+        conda env create   -f cpptools-dev-requirements.yml || exit 1
+        echo "done" || exit 1
       displayName: create dev requirements env
 
     - script: |
-        echo "cd path"
-        cd ..\cpptools
-        echo "activate"
-        call activate cpptools-dev-requirements
-        echo "mkdir"
-        mkdir build
-        cd build
-        echo "cmake gen"
+        echo "cd path" || exit 1
+        cd ..\cpptools || exit 1
+        echo "activate" || exit 1
+        call activate cpptools-dev-requirements || exit 1
+        echo "mkdir" || exit 1
+        mkdir build || exit 1
+        cd build || exit 1
+        echo "cmake gen" || exit 1
         cmake .. -G"Visual Studio 15 2017 Win64" -DCMAKE_BUILD_TYPE=Release  ^
-              -DDEPENDENCY_SEARCH_PREFIX="%CONDA_PREFIX%\Library" -DCMAKE_PREFIX_PATH="%CONDA_PREFIX%\Library"
+              -DDEPENDENCY_SEARCH_PREFIX="%CONDA_PREFIX%\Library" -DCMAKE_PREFIX_PATH="%CONDA_PREFIX%\Library" || exit 1
       displayName: configure project
 
     - script: |
-        echo "cd path"
-        cd ..\cpptools\build
-        echo "activate"
-        call activate cpptools-dev-requirements
-        cmake --build . --target ALL_BUILD
+        echo "cd path" || exit 1
+        cd ..\cpptools\build || exit 1
+        echo "activate" || exit 1
+        call activate cpptools-dev-requirements || exit 1
+        cmake --build . --target ALL_BUILD || exit 1
       displayName: build project
 
     - script: |
-        echo "cd path"
-        cd ..\cpptools\build 
-        echo "activate"
-        call activate cpptools-dev-requirements
-        echo "run tests"
-        cmake --build . --target python-test
-        cmake --build . --target cpp-test
+        echo "cd path" || exit 1
+        cd ..\cpptools\build  || exit 1
+        echo "activate" || exit 1
+        call activate cpptools-dev-requirements || exit 1
+        echo "run tests" || exit 1
+        cmake --build . --target python-test || exit 1
+        cmake --build . --target cpp-test || exit 1
       displayName: run tests
 
 

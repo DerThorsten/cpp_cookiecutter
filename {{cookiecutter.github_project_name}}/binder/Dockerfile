@@ -1,4 +1,4 @@
-FROM {{cookiecutter.dockerhub_user_name}}/{{cookiecutter.docker_project_name}}:v0.1.0
+FROM {{cookiecutter.dockerhub_user_name}}/{{cookiecutter.dockerhub_project_name}}:v0.1.0
 
 
 ##########################################

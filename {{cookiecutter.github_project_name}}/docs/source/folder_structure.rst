@@ -14,6 +14,9 @@ The generated project has the following folder structure
       ├──benchmark                                          # C++ benchmark code
       │   └── ...
       │
+      ├──binder                                             # dockerfile for mybinder.org
+      │   └── Dockerfile
+      │
       ├──cmake                                              # Cmake script/modules
       │   └── ...
       │
@@ -28,6 +31,8 @@ The generated project has the following folder structure
       │
       ├──{{cookiecutter.package_name}}-dev-requirements.yml # List of development conda dependencies
       │
+      ├──docker                                              # dockerfile for dockerhub
+      │   └── Dockerfile
       ├──docs                                               # Sources for sphinx documentation
       │   └── ...
       │

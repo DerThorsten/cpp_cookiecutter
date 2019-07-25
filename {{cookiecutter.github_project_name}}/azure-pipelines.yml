@@ -26,27 +26,27 @@ jobs:
         inputs:
           updateConda: false
       - script: |
-          conda config --set always_yes yes --set changeps1 no 
-          conda update -q conda 
-          conda env create -f {{cookiecutter.package_name}}-dev-requirements.yml 
-          source activate {{cookiecutter.package_name}}-dev-requirements 
-          mkdir build 
-          cd build 
-          cmake .. 
-          make -j2 
-          make cpp-test 
-          {% if cookiecutter.python_bindings == 'yes' -%}
-          make python-test 
-          {% endif %}
-          echo "run cpp example" 
-          cd examples 
-          ./hello_world 
-          cd .. 
-          echo "run cpp benchmark" 
-          cd benchmark 
-          ./benchmark_{{cookiecutter.cmake_project_name}} 
-          cd .. 
-          echo "Completed script successfully" 
+          conda config --set always_yes yes --set changeps1 no  || exit 1
+          conda update -q conda  || exit 1
+          conda env create -f {{cookiecutter.package_name}}-dev-requirements.yml  || exit 1
+          source activate {{cookiecutter.package_name}}-dev-requirements  || exit 1
+          mkdir build  || exit 1
+          cd build  || exit 1
+          cmake ..  || exit 1
+          make -j2  || exit 1
+          make cpp-test  || exit 1
+          {% if cookiecutter.python_bindings == 'yes' -%} || exit 1
+          make python-test  || exit 1
+          {% endif %} || exit 1
+          echo "run cpp example"  || exit 1
+          cd examples  || exit 1
+          ./hello_world  || exit 1
+          cd ..  || exit 1
+          echo "run cpp benchmark"  || exit 1
+          cd benchmark  || exit 1
+          ./benchmark_{{cookiecutter.cmake_project_name}}  || exit 1
+          cd ..  || exit 1
+          echo "Completed script successfully"  || exit 1
 
 
   - job: macOS
@@ -66,19 +66,19 @@ jobs:
         displayName: Add conda to PATH
 
       - script: |
-          source activate myroot
-          conda config --set always_yes yes --set changeps1 no
-          conda env create -f {{cookiecutter.package_name}}-dev-requirements.yml
-          echo "source conda env"
-          source activate {{cookiecutter.package_name}}-dev-requirements
-          mkdir build
-          cd build
-          echo "cmake"
-          cmake ..
-          echo "make"
-          make -j2
-          make python-test
-          echo "Completed script successfully"
+          source activate myroot || exit 1
+          conda config --set always_yes yes --set changeps1 no || exit 1
+          conda env create -f {{cookiecutter.package_name}}-dev-requirements.yml || exit 1
+          echo "source conda env" || exit 1
+          source activate {{cookiecutter.package_name}}-dev-requirements || exit 1
+          mkdir build || exit 1
+          cd build || exit 1
+          echo "cmake" || exit 1
+          cmake .. || exit 1
+          echo "make" || exit 1
+          make -j2 || exit 1
+          make python-test || exit 1
+          echo "Completed script successfully" || exit 1
 
 
 
@@ -107,14 +107,14 @@ jobs:
       displayName: create dev requirements env
 
     - script: |
-        echo "activate"
-        call activate {{cookiecutter.package_name}}-dev-requirements
-        echo "mkdir"
-        mkdir build
-        cd build
-        echo "cmake gen"
+        echo "activate" || exit 1
+        call activate {{cookiecutter.package_name}}-dev-requirements || exit 1
+        echo "mkdir" || exit 1
+        mkdir build || exit 1
+        cd build || exit 1
+        echo "cmake gen"  || exit 1
         cmake .. -G"Visual Studio 15 2017 Win64" -DCMAKE_BUILD_TYPE=Release  ^
-              -DDEPENDENCY_SEARCH_PREFIX="%CONDA_PREFIX%\Library" -DCMAKE_PREFIX_PATH="%CONDA_PREFIX%\Library"
+              -DDEPENDENCY_SEARCH_PREFIX="%CONDA_PREFIX%\Library" -DCMAKE_PREFIX_PATH="%CONDA_PREFIX%\Library" || exit 1
 
       displayName: configure project
     - script: |
@@ -126,13 +126,13 @@ jobs:
 
       displayName: build project
     - script: |
-        echo "cd path"
-        cd build
-        echo "activate"
-        call activate {{cookiecutter.package_name}}-dev-requirements
-        echo "run tests"
-        cmake --build . --target python-test
-        cmake --build . --target cpp-test
+        echo "cd path" || exit 1
+        cd build || exit 1
+        echo "activate" || exit 1
+        call activate {{cookiecutter.package_name}}-dev-requirements || exit 1
+        echo "run tests" || exit 1
+        cmake --build . --target python-test || exit 1
+        cmake --build . --target cpp-test || exit 1
 
       displayName: run tests
 

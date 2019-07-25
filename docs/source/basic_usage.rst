@@ -85,6 +85,12 @@ in the table below:
    * - github_user_name             
      - authors github user name
      - JohnDoe
+   * - dockerhub_user_name             
+     - authors dockerhub user name
+     - johndoe
+   * - dockerhub_project_name     
+     - name for this project on dockerhub
+     - johndoe
    * - azure_user_name              
      - authors user name on microsoft azure
      - JohnDoe
@@ -102,7 +108,7 @@ in the table below:
 Build Generated Project
 ********************************************
 
-This cookiecutter is bet used in conjunction with conda:
+This cookiecutter is best used in conjunction with conda:
 Assuming your package is named cpptools the following script
 shows the usage of the generated project cookiecutter on Linux/MacOS
 

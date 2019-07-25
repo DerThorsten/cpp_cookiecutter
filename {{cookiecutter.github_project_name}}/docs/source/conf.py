@@ -9,18 +9,10 @@ import shutil
 import fnmatch
 import sphinx_rtd_theme
 
-import sys
-import os
-import shutil
-import fnmatch
-import sphinx_rtd_theme
-import os
-import subprocess
 
 on_rtd  = os.environ.get('READTHEDOCS', None) == 'True'
 on_travis = os.environ.get('TRAVIS', None) == 'True'
 on_ci = on_rtd or on_travis
-
 
 
 
