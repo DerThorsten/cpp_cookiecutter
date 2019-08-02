@@ -38,7 +38,7 @@ def patch_apidoc(folder):
 
             # Write the file out again
             with open(fname, 'w') as file:
-              file.write(filedata)
+                file.write(filedata)
 
 
 # build everything

@@ -35,9 +35,9 @@ jobs:
           cmake ..  || exit 1
           make -j2  || exit 1
           make cpp-test  || exit 1
-          {% if cookiecutter.python_bindings == 'yes' -%} || exit 1
+          {% if cookiecutter.python_bindings == 'yes' -%}
           make python-test  || exit 1
-          {% endif %} || exit 1
+          {% endif %} 
           echo "run cpp example"  || exit 1
           cd examples  || exit 1
           ./hello_world  || exit 1
@@ -66,7 +66,6 @@ jobs:
         displayName: Add conda to PATH
 
       - script: |
-          source activate myroot || exit 1
           conda config --set always_yes yes --set changeps1 no || exit 1
           conda env create -f {{cookiecutter.package_name}}-dev-requirements.yml || exit 1
           echo "source conda env" || exit 1
@@ -77,7 +76,9 @@ jobs:
           cmake .. || exit 1
           echo "make" || exit 1
           make -j2 || exit 1
+          {% if cookiecutter.python_bindings == 'yes' -%}
           make python-test || exit 1
+          {% endif %} 
           echo "Completed script successfully" || exit 1
 
 
