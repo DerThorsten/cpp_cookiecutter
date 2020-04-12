@@ -8,7 +8,27 @@ set(PROJECT_INCLUDE_DIR    ${CMAKE_CURRENT_SOURCE_DIR}/include)
 set(CPP_ROOT_FOLDER_NAME   {{cookiecutter.cpp_root_folder_name}})
 include_directories(${PROJECT_INCLUDE_DIR})
 
-{% if cookiecutter.cpp_standart == 'C++14' -%}
+{% if cookiecutter.cpp_standart == 'C++20' -%}
+include(CheckCXXCompilerFlag)
+if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Intel")
+    CHECK_CXX_COMPILER_FLAG("-std=c++17" HAS_CPP17_FLAG)
+    if (HAS_CPP17_FLAG)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+    else()
+        message(FATAL_ERROR "Unsupported compiler -- C++14 support required!")
+    endif()
+endif()  
+{% if cookiecutter.cpp_standart == 'C++17' -%}
+include(CheckCXXCompilerFlag)
+if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Intel")
+    CHECK_CXX_COMPILER_FLAG("-std=c++17" HAS_CPP17_FLAG)
+    if (HAS_CPP17_FLAG)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+    else()
+        message(FATAL_ERROR "Unsupported compiler -- C++14 support required!")
+    endif()
+endif()  
+{% elif cookiecutter.cpp_standart == 'C++14' -%}
 # C++ 14
 # ===========
 include(CheckCXXCompilerFlag)
