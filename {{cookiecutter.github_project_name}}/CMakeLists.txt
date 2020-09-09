@@ -18,7 +18,7 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU"
         message(FATAL_ERROR "Unsupported compiler -- C++20 support required!")
     endif()
 endif()  
-{% if cookiecutter.cpp_standart == 'C++17' -%}
+{% elif cookiecutter.cpp_standart == 'C++17' -%}
 include(CheckCXXCompilerFlag)
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Intel")
     CHECK_CXX_COMPILER_FLAG("-std=c++17" HAS_CPP17_FLAG)
