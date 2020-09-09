@@ -9,7 +9,7 @@
     "cpp_namespace":                "{{ cookiecutter.package_name }}",
     "cpp_root_folder_name":         "{{ cookiecutter.package_name }}",
     "cpp_macro_prefix":             "{{ cookiecutter.project_name|upper|replace(' ', '_')|replace('-', '_') }}",    
-    "cpp_standart": ["C++14", "C++11", "NotSpecified"],
+    "cpp_standart": ["C++20", "C++17", "C++14", "C++11", "NotSpecified"],
     "cmake_project_name":           "{{ cookiecutter.package_name }}",
     "cmake_interface_library_name": "{{ cookiecutter.package_name }}",
     "github_project_name":          "{{ cookiecutter.project_slug }}",
